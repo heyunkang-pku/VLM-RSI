@@ -1,0 +1,33 @@
+{
+  "videos_in_denominator": 10,
+  "type_attempts": 40,
+  "frozen_questions": 26,
+  "types": {
+    "event_order": 5,
+    "event_after": 5,
+    "state_change": 8,
+    "motion_direction": 8
+  },
+  "graph_label_coverage_on_frozen_QA": 1.0,
+  "strict_voting_coverage_on_frozen_QA": 0.9615384615384616,
+  "both_answered": 25,
+  "strict_matches": 12,
+  "strict_agreement_among_both_answered": 0.48,
+  "actual_sample_slots": 260,
+  "ties": 1,
+  "accuracy": "PENDING_INDEPENDENT_ANSWERS",
+  "agreement_is_not_accuracy": true,
+  "cost": {
+    "allocation_GPU_hours": 0.31759961423244226,
+    "attempted_calls": 302,
+    "completed_calls": 302,
+    "failed_or_missing_calls": 0,
+    "input_tokens": 980800,
+    "output_tokens": 25341,
+    "device_seconds": 1033.7444985667244,
+    "device_GPU_hours": 0.2871512496018679,
+    "cost_currency": null,
+    "cost_currency_reason": "user-owned server; no monetary tariff supplied",
+    "accuracy": "PENDING_INDEPENDENT_HUMAN"
+  }
+}

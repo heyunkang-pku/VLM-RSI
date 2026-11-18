@@ -1,0 +1,250 @@
+{
+  "schema_version": "pilot-v1",
+  "video": {
+    "video_id": "SYNTHETIC-v1",
+    "source_video_id": "SYNTHETIC-source",
+    "path": "SYNTHETIC/does-not-exist.mp4",
+    "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "duration_sec": 8.0,
+    "avg_fps": "30000/1001",
+    "time_base": "1/100",
+    "start_pts": 1000,
+    "source": "synthetic-unit-test",
+    "split": "fixture",
+    "license_status": "fixture"
+  },
+  "clips": [
+    {
+      "clip_id": "c1",
+      "interval_sec": [
+        0,
+        4
+      ],
+      "frame_ids": [
+        "fr1"
+      ],
+      "split_method": "SYNTHETIC"
+    },
+    {
+      "clip_id": "c2",
+      "interval_sec": [
+        4,
+        8
+      ],
+      "frame_ids": [
+        "fr2"
+      ],
+      "split_method": "SYNTHETIC"
+    }
+  ],
+  "frames": [
+    {
+      "frame_id": "fr1",
+      "clip_id": "c1",
+      "pts": 1100,
+      "time_sec": 1.0,
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "file": "SYNTHETIC/fr1.jpg"
+    },
+    {
+      "frame_id": "fr2",
+      "clip_id": "c2",
+      "pts": 1500,
+      "time_sec": 5.0,
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "file": "SYNTHETIC/fr2.jpg"
+    }
+  ],
+  "parser_runs": [
+    {
+      "parser_run_id": "p0",
+      "model_revision": "SYNTHETIC-NO-MODEL",
+      "prompt_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "seed": 0,
+      "frame_ids": [
+        "fr1",
+        "fr2"
+      ],
+      "sample_group": "same-evidence"
+    },
+    {
+      "parser_run_id": "p1",
+      "model_revision": "SYNTHETIC-NO-MODEL",
+      "prompt_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "seed": 1,
+      "frame_ids": [
+        "fr1",
+        "fr2"
+      ],
+      "sample_group": "same-evidence"
+    },
+    {
+      "parser_run_id": "p2",
+      "model_revision": "SYNTHETIC-NO-MODEL",
+      "prompt_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "seed": 2,
+      "frame_ids": [
+        "fr1",
+        "fr2"
+      ],
+      "sample_group": "same-evidence"
+    },
+    {
+      "parser_run_id": "p3",
+      "model_revision": "SYNTHETIC-NO-MODEL",
+      "prompt_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "seed": 3,
+      "frame_ids": [
+        "fr1",
+        "fr2"
+      ],
+      "sample_group": "same-evidence"
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "o1",
+      "kind": "object",
+      "predicate": "red-shirt person in clip1",
+      "clip_ids": [
+        "c1"
+      ],
+      "support_frame_ids": [
+        "fr1"
+      ],
+      "parser_run_id": "p0",
+      "matched_parser_run_ids": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "start_sec_range": [
+        1,
+        1
+      ],
+      "end_sec_range": [
+        1,
+        1
+      ],
+      "depends_on": [],
+      "node_type": "dynamic"
+    },
+    {
+      "fact_id": "o2",
+      "kind": "object",
+      "predicate": "red-shirt person in clip2",
+      "clip_ids": [
+        "c2"
+      ],
+      "support_frame_ids": [
+        "fr2"
+      ],
+      "parser_run_id": "p0",
+      "matched_parser_run_ids": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "start_sec_range": [
+        5,
+        5
+      ],
+      "end_sec_range": [
+        5,
+        5
+      ],
+      "depends_on": [],
+      "node_type": "dynamic"
+    },
+    {
+      "fact_id": "ev1",
+      "kind": "event",
+      "predicate": "pick up cup",
+      "clip_ids": [
+        "c1"
+      ],
+      "support_frame_ids": [
+        "fr1"
+      ],
+      "parser_run_id": "p0",
+      "matched_parser_run_ids": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "start_sec_range": [
+        1,
+        1
+      ],
+      "end_sec_range": [
+        2,
+        2
+      ],
+      "depends_on": [],
+      "subject_id": "o1"
+    },
+    {
+      "fact_id": "ev2",
+      "kind": "motion",
+      "predicate": "put down cup",
+      "clip_ids": [
+        "c2"
+      ],
+      "support_frame_ids": [
+        "fr2"
+      ],
+      "parser_run_id": "p0",
+      "matched_parser_run_ids": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "start_sec_range": [
+        5,
+        5
+      ],
+      "end_sec_range": [
+        6,
+        6
+      ],
+      "depends_on": [],
+      "subject_id": "o2"
+    },
+    {
+      "fact_id": "id1",
+      "kind": "identity",
+      "predicate": "same physical person",
+      "clip_ids": [
+        "c1",
+        "c2"
+      ],
+      "support_frame_ids": [
+        "fr1",
+        "fr2"
+      ],
+      "parser_run_id": "p0",
+      "matched_parser_run_ids": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "start_sec_range": [
+        1,
+        1
+      ],
+      "end_sec_range": [
+        5,
+        5
+      ],
+      "depends_on": [],
+      "subject_id": "o1",
+      "object_id": "o2",
+      "identity_status": "known"
+    }
+  ]
+}

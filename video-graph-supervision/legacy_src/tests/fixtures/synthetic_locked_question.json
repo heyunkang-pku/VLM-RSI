@@ -1,0 +1,33 @@
+{
+  "video_id": "SYNTHETIC-v1",
+  "source_video_id": "SYNTHETIC-source",
+  "raw_graph_sha256": "da734c6eeb9951954ef91c9fe61ae3114964ff944d6d17e8df957494bd09fa3c",
+  "question": "For the entity described as \"red-shirt person in clip1\" in event A and \"red-shirt person in clip2\" in event B, did it complete \"pick up cup\" strictly before starting \"put down cup\"?",
+  "answer_type": "boolean",
+  "program": {
+    "op": "BEFORE",
+    "args": [
+      "ev1",
+      "ev2"
+    ],
+    "identity_fact_id": "id1"
+  },
+  "required_fact_ids": [
+    "ev1",
+    "ev2",
+    "id1",
+    "o1",
+    "o2"
+  ],
+  "seed": 20261030,
+  "template_version": "strict-order-v2",
+  "template_family": "temporal_order",
+  "identity_mode": "explicit_link",
+  "cross_clip": true,
+  "logical_hop_count": 2,
+  "dependency_fact_count": 5,
+  "candidate_generated_from_raw_graph": true,
+  "program_sha256": "dd376e5164aa6fc4e120c517bca5a083f4b3853ccf872b3f3609e75085650d6c",
+  "question_id": "q_1b1018680a08f21ce31d",
+  "frozen_sha256": "1a84b43b3e157b8590ec956c46006c7184449db68d83c6938f51c98b40521963"
+}

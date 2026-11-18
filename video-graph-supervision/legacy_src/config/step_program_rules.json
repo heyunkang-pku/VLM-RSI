@@ -1,0 +1,19 @@
+{
+  "protocol": "STEP-PROGRAM-ADAPTER-V1-v1",
+  "frozen_before_V1_complete_and_before_human_labels": true,
+  "seed": 2026110102,
+  "graph_source": "V1 automatic partial STSG; no human graph repair",
+  "main_max_questions": 24,
+  "quotas": {"attribute": 8, "spatial_relation": 8, "cross_frame_identity": 8},
+  "selection": "generate full syntactic candidate pool including abstentions; exact-question dedup; fixed SHA256(seed+question_id) rank in each type, max8 each, no outcome/answer-quality filtering or replacement to meet24",
+  "attribute_types_supported": ["color", "material", "texture", "shape", "lid_color"],
+  "entity_binding": "unique accepted class label at source frame only; otherwise abstain; no ordinal-only disambiguation, no referent text containing answer",
+  "multi_attribute_values": "abstain on conflicting literal values for same entity/type/time",
+  "relation_answers": "all accepted literal predicates for the same source-frame endpoints; preserve strings; no synonym rewrite",
+  "identity": "native one-to-one accepted STATIC_MERGED or REFERENCE_CREATED links only; graph missing edge is NOT proof of different identity; negative/unresolved pairs become abstaining diagnostics",
+  "motion": "respect usable_for_program_QA=false; before-motion candidate tests abstain DEPENDENCY_UNSUPPORTED; never turn protection off",
+  "temporal_counts": "time-anchored color/material questions are static; cross-frame identity separate from action/order reasoning",
+  "question_freeze": "qid/video/source times/text/program/version/candidate answer/dependencies/content hashes frozen before Base model calls; separate public blind question file omits answers and dependencies",
+  "base_solver": {"kind":"unadapted Qwen3-VL-4B-Instruct, not Video-Zero v4 or evolved checkpoint", "revision":"ebb281ec70b05090aa6165b016eac8ec08e71b17", "temperature":0,"seed":2026110102,"max_new_tokens":256,"video_frame_cap":32,"video_pixels_cap":50176,"input_rule":"deterministic temporal coverage from existing frozen source-frame pool, no source-video replacement; freeze PNG/hash/PTS first; fewer than32 available retained with denominator","instruction":"answer the question directly from video; no graph, program, candidate answer or human labels supplied"},
+  "human_evaluation": "PENDING; no formal B0/B1/B2 claims; no difficulty or accuracy labels before independent answers"
+}

@@ -1,0 +1,17 @@
+{
+  "QA_sha256": "700a1f550194962f7ec177806a046f2fee42a73a15bb4070b09dcd078404dbeb",
+  "media_sha256": "56d53d17acd9d968ad72493019100bdf15e39835d28bf7aa6a62c76ede5f3b27",
+  "graph_hashes": {
+    "first2": {
+      "GRAPH_SHARED_FROZEN.json": "06629fcc055e3be144fb5f2c1dd70b6a854a9dfed96950fccd2c80183c11d6be",
+      "FACT_REGISTRY.json": "8925e3c17135dc19b6e5c38e2b9cea81dfb82b88d317bd9d66ececda990f2d54",
+      "SOURCE_TEMPORAL_PAIRS.json": "95892b089c2f59e01814820a47c5318ea8558ff58a5e7c08c10dc18dbe9c2f58"
+    },
+    "remaining8": {
+      "GRAPH_SHARED_FROZEN.json": "9680f5d8bf11fb2aa5f3a3ce75eb0c1668b6b5010804b473c2b422601d82d984",
+      "FACT_REGISTRY.json": "ea34626310b61814628c8fc58df7cc2a611807a22b7012ea3899f3c25f2d309b",
+      "SOURCE_TEMPORAL_PAIRS.json": "d394a04ac74f5d24f616d7cfbb32a99cdc40e0ab5f4095e30c3dec98d6a34c8e"
+    }
+  },
+  "frozen_before_any_solver_call": true
+}

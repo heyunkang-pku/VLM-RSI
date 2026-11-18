@@ -1,0 +1,24 @@
+{
+  "model_path": "/scratch/haozhe/.cache/huggingface/hub/models--Qwen--Qwen3-VL-4B-Instruct/snapshots/ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "model_revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "seed": 20261030,
+  "stage": "GATE_B_PARSER_DIAGNOSTIC",
+  "cache_root": "/scratch/haozhe/.cache/vlm-rsi/stsg-gate-b/58489383-78c6-4533-8ab2-c65390d13163",
+  "worker_call_cap": 6,
+  "max_tokens": 2048,
+  "temperature": 0,
+  "wall_seconds": 1200,
+  "training": false,
+  "scaleup_authorized": false,
+  "reward_changes": false,
+  "videos": {
+    "video_7793": {
+      "media_sha256": "8e7d681d4961a5e3e691b2a55a995d0bfa76f63e0dbb1958f63b23125e2b0022",
+      "fsg_sha256": "94506f199690fd76e21880c9c638e1237a463a9990d3a58446034a7ab6edb1e1"
+    },
+    "video_2495": {
+      "media_sha256": "c23e327b5012dcded3a25394a1ef493eddfed8f4db96cd472f210fc2e3f5446c",
+      "fsg_sha256": "60d274296376bd1855326dbd12bec8501e01bd4b92a13b2907a6e68f26f34ed6"
+    }
+  }
+}

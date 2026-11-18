@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-18",
+  "scoring": "raw votes recomputed and matched frozen strict-majority answers",
+  "review_join": "26 unique matched review IDs",
+  "verified_frame_hashes": 320,
+  "legacy_source_byte_mismatches": 0,
+  "missing_readme_links": [],
+  "common_secret_pattern_matches": 0,
+  "gpu_inference_rerun": false,
+  "github_created_or_pushed": false
+}

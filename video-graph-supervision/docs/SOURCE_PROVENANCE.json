@@ -1,0 +1,186 @@
+{
+  "date": "2026-11-18",
+  "source_commit": "20d5065",
+  "archive_sha256": "8cbc6bfab21c95edd46f7b9048d84a3f26f13e8ae3c9bfbc0d4ef1f5dd2e3222",
+  "source_extraction": "legacy_src copied byte-for-byte from nested SOURCE_20d5065.zip",
+  "historical_reports_note": "included_content_read reports reconstructed from complete current text reads, so byte hashes can differ from original files",
+  "not_included": [
+    "original MP4 videos",
+    "model weights",
+    "full training repository",
+    "original Git history",
+    "all historical large ZIPs"
+  ],
+  "assets": [
+    {
+      "filename": "STEP_EVENT_MCQ_V2_DATA.zip",
+      "role": "v2 图/帧/冻结 QA/票型/源码",
+      "included": "included",
+      "repo_path": "artifacts/STEP_EVENT_MCQ_V2_DATA.zip",
+      "library_file_id": "libfile_70d55d035fac8191a82ab0af6c14e380",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_70d55d035fac8191a82ab0af6c14e380&account_id=personal",
+      "bytes": 30989945,
+      "sha256": "57281a22f82d3134d2c2dc14dfe0a91e3b43831c0778a741753fafa43995504e"
+    },
+    {
+      "filename": "STEP_EVENT_MCQ_V2_REPORT.md",
+      "role": "v2 最新报告",
+      "included": "included",
+      "repo_path": "reports/STEP_EVENT_MCQ_V2_REPORT.md",
+      "library_file_id": "libfile_b4ee878dbb908191bc96caf14c7d2094",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_b4ee878dbb908191bc96caf14c7d2094&account_id=personal",
+      "bytes": 6505,
+      "sha256": "dc318479c813858e4a6bfa974adb14474ae7eaa165b9a96859e4c574ba326c7c"
+    },
+    {
+      "filename": "STEP-EVENT-V2-REVIEW-annotator1.csv",
+      "role": "单人审核原表",
+      "included": "included",
+      "repo_path": "annotations/STEP-EVENT-V2-REVIEW-annotator1.csv",
+      "library_file_id": "libfile_588e11f651508191a86579e04afe31e2",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_588e11f651508191a86579e04afe31e2&account_id=personal",
+      "bytes": 2075,
+      "sha256": "1ad1799388e441b71500b363fc0defe41f0a0b29bfd8a8fb33e764e6e9a6437e"
+    },
+    {
+      "filename": "STEP_EVENT_MCQ_V2_BLIND_REVIEW.zip",
+      "role": "无答案离线审核包",
+      "included": "included",
+      "repo_path": "artifacts/STEP_EVENT_MCQ_V2_BLIND_REVIEW.zip",
+      "library_file_id": "libfile_0d9c0e2ea9888191b3106dc8d18d487f",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_0d9c0e2ea9888191b3106dc8d18d487f&account_id=personal",
+      "bytes": 20123471,
+      "sha256": "b3e7769ef9398c99b33962f60bb2efe673eb8950f58d95ebf37cd75f01e20fba"
+    },
+    {
+      "filename": "STEP33_VERIFIER_V2_REVIEW.md",
+      "role": "必要事实/证据预检历史报告",
+      "included": "included_content_read",
+      "repo_path": "reports/STEP33_VERIFIER_V2_REVIEW.md",
+      "library_file_id": "libfile_315aa2c841388191bd96ba5ae40ac2a3",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_315aa2c841388191bd96ba5ae40ac2a3&account_id=personal",
+      "bytes": 5581,
+      "sha256": "ab2dae3f878adf5bd878a790e30ce930181ce54159ea5e530e5f1ea0755d8e47"
+    },
+    {
+      "filename": "FOUR_GROUP_REVIEW.md",
+      "role": "旧33与新53历史工程比较",
+      "included": "included_content_read",
+      "repo_path": "reports/FOUR_GROUP_REVIEW.md",
+      "library_file_id": "libfile_2075b49917108191ab1b878cccb6d636",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_2075b49917108191ab1b878cccb6d636&account_id=personal",
+      "bytes": 10497,
+      "sha256": "f0ee7b04525b5ce03e887a8bc4aa7cf23ec4a26b79cb078d01c6eb35d9af9ec9"
+    },
+    {
+      "filename": "INPUT_ALIGNMENT_MULTITIME_PROTOCOL_20261104.md",
+      "role": "输入对齐与多时刻适配",
+      "included": "included_content_read",
+      "repo_path": "reports/INPUT_ALIGNMENT_MULTITIME_PROTOCOL_20261104.md",
+      "library_file_id": "libfile_d29a998c7d408191a6b3745c34265168",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_d29a998c7d408191a6b3745c34265168&account_id=personal",
+      "bytes": 3277,
+      "sha256": "aa83455a2d9689f906dee53f2d5adb9dc5250d2f023ce59cce222cff3a5ff532"
+    },
+    {
+      "filename": "STEP_PUBLIC32_FOLLOWUP_REPORT.md",
+      "role": "84+60/BLIND144 历史报告",
+      "included": "included",
+      "repo_path": "reports/STEP_PUBLIC32_FOLLOWUP_REPORT.md",
+      "library_file_id": "libfile_7b721f23104c819180d5e578cc3969d0",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_7b721f23104c819180d5e578cc3969d0&account_id=personal",
+      "bytes": 4147,
+      "sha256": "f5ce09681629d34283f327b08f55f8ef60da5a2ed0f2891d51520df31c5d88d2"
+    },
+    {
+      "filename": "STEP_EVENT_MCQ_V1_DATA.zip",
+      "role": "v1 零题审计数据",
+      "included": "index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_ac959dd6dbc081918da381280a4b9c9e",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_ac959dd6dbc081918da381280a4b9c9e&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "EVENT_MCQ_REPORT.md",
+      "role": "v1 零题审计报告",
+      "included": "read_index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_1442b44a58f881919856a52753ae664f",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_1442b44a58f881919856a52753ae664f&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "STEP_EVENT_MCQ_V1_REVIEW.zip",
+      "role": "v1 审阅材料",
+      "included": "index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_1e3c081eccf08191a699aa5278317a98",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_1e3c081eccf08191a699aa5278317a98&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "STEP_PUBLIC32_FOLLOWUP_COMPLETE.zip",
+      "role": "公共32后续完整包",
+      "included": "index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_442c90d54bf88191860a45d1097b7843",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_442c90d54bf88191860a45d1097b7843&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "STEP_PUBLIC32_REVIEW_20261109.zip",
+      "role": "公共32旧审阅包",
+      "included": "index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_65b85d27eaa08191beca41b078e00785",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_65b85d27eaa08191beca41b078e00785&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "BLIND144_STAGE1_FINAL.zip",
+      "role": "144题独立审核入口",
+      "included": "index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_2b1155245b048191a17fb158a9973540",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_2b1155245b048191a17fb158a9973540&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "ALL84_READABLE.csv",
+      "role": "历史84题可读表",
+      "included": "index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_6a1e49e90c248191ba91d6145e303b84",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_6a1e49e90c248191ba91d6145e303b84&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "NEW60_COMPARISON.csv",
+      "role": "历史60题比较",
+      "included": "index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_aedd4b0b787c819196802a7ddd0ec200",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_aedd4b0b787c819196802a7ddd0ec200&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    },
+    {
+      "filename": "STEP_VQS_research_handoff_2026-10-31(2).md",
+      "role": "历史决策背景，部分已过时",
+      "included": "read_index_only",
+      "repo_path": "",
+      "library_file_id": "libfile_324fa22808fc819187e2ef065b9b9e04",
+      "source_link": "https://chatgpt.com/library?file_id=libfile_324fa22808fc819187e2ef065b9b9e04&account_id=personal",
+      "bytes": "",
+      "sha256": ""
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "seed": 20261030,
+  "source_pool_count": 640,
+  "source_pool_file_sha256": "3bf5258b3201827a40df30e1eee73a049fd12cf38aa4aa124d5fdf1018ee7705",
+  "selection_rule": "ascending sha256(seed:PerceptionTest:original_video_id), first5; no model outcome inputs",
+  "selected": [
+    {
+      "source": "PerceptionTest",
+      "split": "train",
+      "path": "/scratch/haozhe/.cache/vlm-rsi/multisource-proxy-v1/PerceptionTest/selected_train/video_7793.mp4",
+      "archive_member": "videos/video_7793.mp4",
+      "zip_crc32": 2737730944,
+      "author_sample_verified": false,
+      "sha256": "18b9ccd8e5a7cfe1b58c7e2b1747aea49de717cf18fe81b20cf9e01812086021",
+      "bytes": 17474290,
+      "decoded_frames": 1032,
+      "first_timestamp": 0.0,
+      "last_timestamp": 34.37468742706631,
+      "full_stream_decoded": true
+    },
+    {
+      "source": "PerceptionTest",
+      "split": "train",
+      "path": "/scratch/haozhe/.cache/vlm-rsi/multisource-proxy-v1/PerceptionTest/selected_train/video_3249.mp4",
+      "archive_member": "videos/video_3249.mp4",
+      "zip_crc32": 2974391318,
+      "author_sample_verified": false,
+      "sha256": "e818a78ce01f6f1eeb567a24308d79e9f045134b5b728e7b22be47d9072a4f5e",
+      "bytes": 3692717,
+      "decoded_frames": 334,
+      "first_timestamp": 0.0,
+      "last_timestamp": 11.092974449515307,
+      "full_stream_decoded": true
+    },
+    {
+      "source": "PerceptionTest",
+      "split": "train",
+      "path": "/scratch/haozhe/.cache/vlm-rsi/multisource-proxy-v1/PerceptionTest/selected_train/video_2495.mp4",
+      "archive_member": "videos/video_2495.mp4",
+      "zip_crc32": 2843956601,
+      "author_sample_verified": false,
+      "sha256": "4d8fb00c39790c9ee39ae03ece186664dd95a2e8747bdd20dd340ecc25011b20",
+      "bytes": 18628714,
+      "decoded_frames": 660,
+      "first_timestamp": 0.0,
+      "last_timestamp": 22.157963753740628,
+      "full_stream_decoded": true
+    },
+    {
+      "source": "PerceptionTest",
+      "split": "train",
+      "path": "/scratch/haozhe/.cache/vlm-rsi/multisource-proxy-v1/PerceptionTest/selected_train/video_8038.mp4",
+      "archive_member": "videos/video_8038.mp4",
+      "zip_crc32": 2428711795,
+      "author_sample_verified": false,
+      "sha256": "cf6f7f94ab1e744f3b3ed2ac2c32aeacc7079643ffd2dbcc5f14f5428ac406a1",
+      "bytes": 6089887,
+      "decoded_frames": 964,
+      "first_timestamp": 0.0,
+      "last_timestamp": 31.77693449925755,
+      "full_stream_decoded": true
+    },
+    {
+      "source": "PerceptionTest",
+      "split": "train",
+      "path": "/scratch/haozhe/.cache/vlm-rsi/multisource-proxy-v1/PerceptionTest/selected_train/video_3612.mp4",
+      "archive_member": "videos/video_3612.mp4",
+      "zip_crc32": 1126348539,
+      "author_sample_verified": false,
+      "sha256": "322ed524fab87ed429c56de42a48efb20be3b9ff9d4ed5172251d12fa562d6c4",
+      "bytes": 13026543,
+      "decoded_frames": 407,
+      "first_timestamp": 0.0,
+      "last_timestamp": 13.546428213940143,
+      "full_stream_decoded": true
+    }
+  ]
+}

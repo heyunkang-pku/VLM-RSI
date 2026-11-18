@@ -1,0 +1,418 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "pilot-v1"
+    },
+    "video": {
+      "type": "object",
+      "properties": {
+        "video_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_video_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "duration_sec": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "avg_fps": {
+          "type": "string",
+          "minLength": 1
+        },
+        "time_base": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_pts": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "split": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license_status": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "video_id",
+        "source_video_id",
+        "path",
+        "sha256",
+        "duration_sec",
+        "avg_fps",
+        "time_base",
+        "start_pts",
+        "source",
+        "split",
+        "license_status"
+      ],
+      "additionalProperties": false
+    },
+    "clips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "clip_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "interval_sec": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "frame_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "split_method": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "clip_id",
+          "interval_sec",
+          "frame_ids",
+          "split_method"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "frames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "frame_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "clip_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pts": {
+            "type": "integer"
+          },
+          "time_sec": {
+            "type": "number"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "file": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "frame_id",
+          "clip_id",
+          "pts",
+          "time_sec",
+          "sha256",
+          "file"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "parser_runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "parser_run_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "prompt_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "seed": {
+            "type": "integer"
+          },
+          "frame_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "sample_group": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "parser_run_id",
+          "model_revision",
+          "prompt_hash",
+          "seed",
+          "frame_ids",
+          "sample_group"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "object",
+              "attribute",
+              "relation",
+              "event",
+              "motion",
+              "identity"
+            ]
+          },
+          "predicate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "clip_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "support_frame_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "parser_run_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "matched_parser_run_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "start_sec_range": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "end_sec_range": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "object_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "identity_status": {
+            "enum": [
+              "known",
+              "unknown"
+            ]
+          },
+          "attribute_value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "node_type": {
+            "enum": [
+              "static",
+              "dynamic",
+              "unknown"
+            ]
+          },
+          "identity_scope": {
+            "enum": [
+              "single_frame",
+              "tracked_entity"
+            ]
+          }
+        },
+        "required": [
+          "fact_id",
+          "kind",
+          "predicate",
+          "clip_ids",
+          "support_frame_ids",
+          "parser_run_id",
+          "matched_parser_run_ids",
+          "start_sec_range",
+          "end_sec_range",
+          "depends_on"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "object"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "node_type"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "attribute"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "subject_id",
+                "attribute_value"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "relation",
+                    "identity"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "subject_id",
+                "object_id"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "identity"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "identity_status"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "event",
+                    "motion"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "subject_id"
+              ]
+            }
+          }
+        ]
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "video",
+    "clips",
+    "frames",
+    "parser_runs",
+    "facts"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gate A pilot-v1 raw_graph"
+}

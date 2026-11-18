@@ -1,0 +1,90 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "fact_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "raw_graph_sha256": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "fact_sha256": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "visual_verdict": {
+        "enum": [
+          "yes",
+          "no",
+          "uncertain"
+        ]
+      },
+      "checker_revision": {
+        "type": "string",
+        "minLength": 1
+      },
+      "checked_frame_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "cost_gpu_sec": {
+        "type": "number",
+        "minimum": 0
+      },
+      "tokens": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "checker_independence": {
+        "const": "none"
+      },
+      "frequency": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "frequency_matching": {
+        "type": "string",
+        "minLength": 1
+      },
+      "checker_run_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "raw_response": {
+        "type": "string"
+      },
+      "reason": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "fact_id",
+      "raw_graph_sha256",
+      "fact_sha256",
+      "visual_verdict",
+      "checker_revision",
+      "checked_frame_ids",
+      "cost_gpu_sec",
+      "tokens",
+      "checker_independence",
+      "frequency",
+      "frequency_matching",
+      "checker_run_id",
+      "raw_response",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "minItems": 0,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gate A pilot-v1 verification_ledger"
+}

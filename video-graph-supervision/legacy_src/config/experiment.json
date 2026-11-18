@@ -1,0 +1,105 @@
+{
+  "stage": "GATE_A",
+  "gpu_authorized": false,
+  "decode_authorized": false,
+  "train_authorized": false,
+  "seed": 20261030,
+  "scope": "CPU contracts only; all real-video methods NOT_RUN",
+  "proposed_model": {
+    "all_roles": "Qwen/Qwen3-VL-4B-Instruct",
+    "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "checker_independence": "none",
+    "v4_comparison": "not included in primary B0/B1/B2; optional later separately approved"
+  },
+  "proposed_sampling": {
+    "fps": 2.0,
+    "max_frames_shared": 32,
+    "frame_policy": "streaming PTS-based; frozen shared union; no private extra frames",
+    "parser_per_sample_total_frames": 32,
+    "clips_cap": 4,
+    "shot_detection": "PySceneDetect planned, max4 scenes; keep manifest of dropped scenes; never equate absence with negative",
+    "clustering": "omitted v1; uniformly spread PTS representatives from shared budget",
+    "max_pixels_per_frame": 50176
+  },
+  "proposed_parser": {
+    "samples_per_evidence_group": 4,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_new_tokens": 2048,
+    "seed_offsets": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "raw_graph_choice": "first structurally valid sample per fixed evidence group, ordered seed; deterministic assembly, never checker-selected",
+    "fact_cap": 64,
+    "frequency_matching": "exact canonical signature incl bound intervals and explicit entity IDs after deterministic alignment; no fuzzy fallback",
+    "bridge_samples_per_adjacent_clip_pair": 4,
+    "fact_cap_policy": "reject graph if >64; never truncate dependency closure"
+  },
+  "proposed_checker": {
+    "temperature": 0,
+    "max_new_tokens": 128,
+    "check_all_atomic_dependencies": true,
+    "threshold": 0.75,
+    "threshold_sweep": [
+      0.5,
+      0.75,
+      1.0
+    ],
+    "missing_claim_policy": "abstain"
+  },
+  "proposed_b0": {
+    "K": 8,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_new_tokens": 512,
+    "seeds": [
+      20261040,
+      20261041,
+      20261042,
+      20261043,
+      20261044,
+      20261045,
+      20261046,
+      20261047
+    ],
+    "strict_majority": true,
+    "vote_denominator": 8,
+    "threshold_sweep": [
+      0.625,
+      0.75,
+      0.875,
+      1.0
+    ],
+    "prompt": "video + locked fixed template question + minimal response format; differs from official benchmark reasoning prompt"
+  },
+  "proposed_hardness": {
+    "independent_seed_offsets": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107
+    ],
+    "empirical_hard_correct_at_most": 4,
+    "gold_required": true,
+    "no_filtering_candidate_universe": true
+  },
+  "program_templates": [
+    "BEFORE",
+    "WHICH_FIRST"
+  ],
+  "q_per_video_cap": 5,
+  "limits": {
+    "candidate_generated_from_raw_graph": true,
+    "gold_input_to_parser": false,
+    "large_download": false,
+    "real_crossclip_validated": false,
+    "smoke_authorized": false
+  }
+}

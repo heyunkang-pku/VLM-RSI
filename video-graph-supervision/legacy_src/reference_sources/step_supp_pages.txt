@@ -1,0 +1,484 @@
+
+=== PDF PAGE 1 ===
+               STEP: Enhancing Video-LLMs’ Compositional Reasoning by
+                      Spatio-Temporal Graph-guided Self-Training
+                                             Supplementary Material
+Overview
+                                                               ful objects.
+In this supplementary material we present:                     Answer: Meaningful objects are [woman, dog,
+• The detailed prompt for STSG construction and QRA re-        beach].
+  finement (Section A)                                         Question: Given the sentence “A mix of black and
+• The specifics of the backbone models (Section B)             white cat jumps over a old fence,” extract meaning-
+• Implementation details (Section C)                           ful objects.
+• The evaluation details for each datasets (Section D)         Answer: Meaningful objects are [cat, fence].
+• Additional experimental results (Section E)                  Please answer the following question.
+• More Qualitative Visualizations (Section F)                  Question: Given the sentence “[A man and a
+                                                               woman carrying a red box are on a
+A. Detailed Prompt Design                                      dock],” extract meaningful objects.
+                                                               Answer:
+A.1. Prompt for STSG Construction                              [ /INST ]
+Here, we provide detailed prompts as well as their inputs
+and outputs, for each step of the STSG Construction.           ▶ Output2:
+                                                               [Meaningful objects are [man,
+Semantics Parsing                                              woman, box, dock].]
+▶ Step-1 : For each keyframe, first get its scene narrative,
+then extract the object information.                           ▶ Input3:
+                                                               [ INST ]
+    Step-1: Object Nodes Parsing                               Given the object name: [man], if there is more
+                                                               than one, please provide the quantity and de-
+    ▶ Input1:                                                  scribe each instance of [man] with a correspond-
+    [ INST ]                                                   ing unique attribute. The unique attribute should be
+    Describe the keyframe of the video in one sen-             something that only one instance has while the oth-
+    tence, ensuring to include all main objects within         ers do not. Use the following format for the output:
+    the scene.                                                 Object: [man]
+    [ /INST ]                                                  Quantity: [number]
+    <Image>        </Image>                                    1. [man]1: [distinct unique attribute]
+                                                               2. [man]2: [distinct unique attribute]
+    ▶ Output1: [In the keyframe, a man                         ...
+    and a woman carrying a red box are                         [ /INST ]
+    on a dock.]
+                                                               <Image>         </Image>
+    ▶ Input2:
+                                                               ▶ Output3:
+    [ INST ]
+                                                               [Object: man
+    From the given sentence, the task is to extract mean-
+                                                               Quantity: 1
+    ingful objects. Note that the object is the entity or
+                                                               1. man1: wearing a light-colored
+    noun that being described in the sentence. Let’s take
+                                                               shirt and shorts]
+    a few examples to understand how to extract mean-
+    ingful objects.                                            ▶ Input4:
+    Question: Given the sentence “Children play with           Given the object: [man], determine if it is a static
+    red toys in the yard,” extract meaningful objects.         object or a dynamic object. Note that static objects
+    Answer: Meaningful objects are [children, toys,            refer to background objects that may not move or
+    yard].                                                     change observably within a short time while dy-
+    Question: Given the sentence “A beautiful woman            namic objects are the opposite. If the object is static,
+    walking a dog on top of a beach,” extract meaning-
+
+
+=== PDF PAGE 2 ===
+    print ‘Static’, otherwise print ‘Dynamic’, no expla-          looking out over a serene marshy
+    nation is needed.                                             area].” Extract meaningful attributes for the
+                                                                  object “[man]”
+    <Video>          </Videos>
+                                                                  Answer:
+    ▶ Output4: [Dynamic]                                          [ /INST ]
+
+                                                                  ▶ Output2:
+▶ Step-2 : For each object, we request a detailed narrative       [["object":"man", "attributes":
+to extract its fine-grained attributes.                           ["clothing":"white shirt",
+                                                                  "clothing":"gray shorts",
+    Step-2: Attribute Nodes Parsing
+                                                                  "status":"standing"]]]
+    ▶ Input1:
+    [ INST ] Given the object: [man], describe its at-        ▶ Step-3 : For each pair of object nodes, we construct <
+    tributes in the scene using one or two sentences that     subject,predicate,object > triples to capture their relational
+    primarily include adjectives or present participles (-    correspondence.
+    ing forms). Avoid any irrelevant details or complex
+    explanations.                                                 Step-3: Relation Edges Parsing
+    [ /INST ]
+    <Image>          </Image>                                     ▶ Input1:
+                                                                  [ INST ]
+    ▶ Output1: [The man is standing on a                          Given the object: [man] in the provided im-
+    wooden dock, wearing a white shirt                            age, describe all spatial or contact relationship be-
+    and gray shorts and looking out                               tween [man] and other objects [woman, dock,
+    over a serene marshy area.]                                   box] in the image. Ensure the subject of every
+                                                                  sentence is [man], and do not include detailed de-
+    ▶ Input2:                                                     scriptions of other objects.
+    [ INST ]                                                      <Image>         </Image>
+    For the given sentence, the task is to extract mean-          [ /INST ]
+    ingful attributes for the given object. Each attribute
+    should include its type and value. Let’s take a few           ▶ Output1:
+    examples to understand how to extract meaningful              [The man is standing at the end of
+    attributes.                                                   a dock, waiting for the woman.]
+    Question: Given the sentence “A woman with long
+    and blonde hair is sitting on a park bench,” extract          ▶ Input2:
+    meaningful attributes for the object “woman”.                 [ INST ] From the given sentence, the task is to ex-
+    Answer: [“object”:“woman”, “attributes”:[“hair”:              tract meaningful triplets formed as <subject, pred-
+    “long and blonde”, “status”:“sitting”]]                       icate, object>. Note that the subject must be the
+    Question: Given the sentence “A tall man in a red             given object, and the object is the entity or noun
+    jacket is walking down the street,” extract meaning-          that is affected by the action or is receiving the ac-
+    ful attributes for the object “man”.                          tion. The predicate is a verb or adjective without
+    Answer: [“object”:“man”, “attributes”:[“height”:              auxiliary verb, and is represented without the tense
+    “tall”, “clothing”:“red jacket”, “action”: “walk-             (e.g., are, being). Let’s take a few examples to un-
+    ing”]]                                                        derstand how to extract meaningful triplets.
+    Question: Given the sentence “The blue car is                 Question: Given the sentence “a slice of bread is
+    parked,” extract meaningful object label and at-              covered with a sour cream and quacamole,” extract
+    tributes for the object “car”                                 meaningful triplets for the given object “bread”.
+    Answer: [“object”:“car”, “attributes”:[“color”:“bl-           Answer: Meaningful triplets are <bread, cov-
+    ue”, “status”:“parked”]]                                      ered with, sour cream>, <bread, covered with,
+    Please answer the following question.                         guacamole>.
+    Question: Given the sentence “[The man is                     Question: Given the sentence “A clock sitting on
+    standing on a wooden dock, wearing                            a floor next to a woman’s feet,” extract meaningful
+    a white shirt and gray shorts and                             triplets for the given object “clock”.
+
+
+=== PDF PAGE 3 ===
+    Answer: Meaningful triplets are <clock, sitting on,            ▶ Output1: [Yes]
+    floor>, <clock, next to, feet>.
+    Question: Given the sentence “One person sits in
+    a chair looking at her phone while another rests on        ▶ Step-2 : If the two identical object nodes are static, just
+    the couch,” extract meaningful triplets for the given      merge them into a single unified node, dynamic, the prompt
+    object “person”.                                           should be:
+    Answer: Meaningful triplets are <person, sits in,
+    chair>, <person, looking at, phone>, <person,                  Step-2: Connect the Dynamic Nodes
+    rests on, couch>.
+    Please answer the following question.                          ▶ Input1:
+    Question: Given the sentence “[The man is                      Given the same object [woman walking on
+    standing at the end of a dock,                                 the dock] in the first half video and [woman
+    waiting for the woman],” extract mean-                         kneeling on the dock] in the second half
+    ingful triplets for the given object [man].                    video, describe the action of this object in the video.
+    Answer:
+
+    ▶ Output2:                                                     ▶ Output1: [The woman fell down on
+    [Meaningful triplets are <man,                                 the dock.]
+    standing at, the end of dock>,
+                                                                   ▶ Input2:
+    <man, waiting for, woman>]
+                                                                   For the given sentence, the task is to extract mean-
+                                                                   ingful action for the given object. The action should
+▶ Verification : Filter the hallucinated nodes.                    be described using a verb or verb phrase. Let’s take
+                                                                   a few examples to understand how to extract.
+    Step-1: Identify the Cross-frame Object Nodes                  Question: Given the sentence “The man walked on
+                                                                   the street,” extract meaningful action for the object
+    ▶ Input1:
+                                                                   “man”.
+    [ INST ]
+                                                                   Answer: [“action”:“walking on the street”]
+    For the given video, determine if [the box
+                                                                   Question: Given the sentence “The cat jumped on
+    whose color is red] truly exists in the
+                                                                   the bed,” extract meaningful action for the object
+    given video.
+                                                                   “cat”.
+    [ /INST ]
+                                                                   Answer: [“action”:“jumping on the bed”]
+    <Video>      </Videos>                                         Question: Given the sentence ”The dog chased the
+                                                                   ball in the park,” extract meaningful action for the
+    ▶ Output1: [Yes]                                               object ”dog”.
+                                                                   Answer: [”action”: ”chasing the ball in the park”]
+                                                                   Please answer the following question.
+                                                                   Question: Given the sentence “[The woman
+Dynamic Merging
+                                                                   fell down on the dock],” extract mean-
+▶ Step-1 : Determine if the nodes in different keyframes are       ingful action for the object “[woman]”.
+identical.                                                         Answer:
+
+    Step-1: Identify the Cross-frame Object Nodes                  ▶ Output2:
+                                                                   [["action":"falling down on the
+    ▶ Input1:                                                      dock"]]
+    [ INST ]
+    For the given video, determine if [woman                       ▶ Input3:
+    walking on the dock ] in the first half                        For the given action, extract the predicate and ob-
+    and [woman kneeling on the dock] in                            ject. The predicate is a verb or verb phrase, and the
+    the second half are the same object. Just output               object is the entity or noun that is affected by the ac-
+    ‘Yes’ or ‘No’.                                                 tion. Let’s take a few examples to understand how
+    [ /INST ]                                                      to extract.
+    <Video>        </Videos>                                       Question: Given the action “walking”, extract the
+
+
+=== PDF PAGE 4 ===
+    predicate and object.                                            Please correct them and return the improved version
+    Answer: [“predicate”:“walking”, “object” :“None”]                in JSON format : {“Q”: “question”, “R”: “ratio-
+    Question: Given the action “jumping on the bed”,                 nale”, “A”: “answer”}
+    extract the predicate and object.                                [ /INST ]
+    Answer: [“predicate”:“jumping on”, “object”:
+    “bed”]
+    Question: Given the action “sitting on the chair”,           B. Backbone Models Specifications
+    extract the predicate and object.                            B.1. VideoChat2 (7B)
+    Answer:       [“predicate”:“sitting on”, “object”:
+    “chair”]                                                     VideoChat2 is an advanced Video-LLM designed to handle
+    Please answer the following question.                        complex video-language understanding tasks [5]. Its archi-
+    Question: Given the action “[falling down                    tecture integrates a visual encoder, a Q-Former module for
+    on the dock]”, extract the predicate and ob-                 compressing and aligning visual data, and a large language
+    ject.                                                        model (LLM) for advanced reasoning and response genera-
+    Answer:                                                      tion. The training process follows a progressive three-stage
+                                                                 paradigm: vision-language alignment to link visual and tex-
+    ▶ Output3:                                                   tual features, vision-language connection to integrate visual
+    [["predicate":"falling down on",                             embeddings with the LLM, and instruction tuning to en-
+    "object":"dock"]]                                            hance multi-modal instruction-following capabilities.
+                                                                    The version we use is VideoChat2 with Mistral 7B.
+                                                                 To endow the initial model with a baseline level of
+                                                                 instruction-following capability, we selected 60K sam-
+Cross-clip Bridging
+                                                                 ples from the instruction-tuning dataset of VideoChat2 for
+▶ Step-1 : Determine if the nodes in different clips represent   foundational instruction tuning on the pre-trained (vision-
+the same object. If they do, connect them with a reference       language aligned) VideoChat2 model, which results in
+edge.                                                            VideoChat2*. The details are presented in Table 1.
+    Step-1: Identify the Cross-clip Object Nodes
+                                                                   Modality     Dataset             Description       # Samples
+    ▶ Input1:                                                                   CoCo                Captioning            5K
+    [ INST ]                                                      Image-Text
+                                                                                VQAv2               General              10K
+    For the given video, determine if [woman
+    walking on the dock ] in the first clip and                              VideoChat              Captioning            5K
+    [woman sitting on the blanket] in the                                    SthSthV2               Classification        5K
+    second clip are the same object. Just output ‘Yes’ or                    VideoChatGPT           General              10K
+                                                                  Video-Text
+    ‘No’.                                                                    NExTQA                 Reasoning            10K
+    [ /INST ]                                                                CLEVRER                Reasoning             5K
+                                                                             Tgif                   Reasoning            10K
+    <Video>         </Videos>
+                                                                     Total                                               60K
+    ▶ Output1:
+    [Yes]                                                               Table 1. Data mixture of initial instruction tuning
+
+
+                                                                 B.2. VILA (3B)
+A.2. Prompt for QRA refinement                                   VILA is a Video-LLM evolved from an Image-LLM [6].
+    Step-1: Identify the Object Nodes                            It employs an autoregressive architecture that integrates
+                                                                 tokenized images with text inputs. The training process
+    ▶ Input1:                                                    includes three stages: projector initialization for modal-
+    [ INST ]                                                     ity alignment, visual-language pre-training on interleaved
+    I have the question “[q]”, the rationale “[r]”, and          datasets to enhance zero-shot and in-context learning, and
+    the answer “[a]” about the video. Due to tem-                visual instruction-tuning to optimize task-specific perfor-
+    plate generation, these may contain grammatical er-          mance. In the instruction-tuning stage, VILA incorporates
+    rors, logical inconsistencies, or unclear semantics.         video-based instruction datasets, extending its capabilities
+                                                                 to spatio-temporal reasoning as a lightweight Video-LLM.
+
+
+=== PDF PAGE 5 ===
+   Since VILA does not provide checkpoints after the                For the Distillation model, the raw videos and training
+visual-language pre-training stage, we are unable to per-         sample size are consistent with those used for the STEP
+form instruction-tuning with a small amount of data. In-          model, ensuring that the distillation process is based on the
+stead, we directly use the fully instruction-tuned model as       same foundational data.
+the initial model in our STEP framework.
+                                                                  D. Evaluation Details
+C. Implementation Details
+                                                                  For the compositional reasoning benchmarks AGQA [4]
+STEP method first constructs STSGs for diverse videos in          and STAR [10], and the standard QA datasets MSVD-QA
+the raw video datasets during the symbolic structure in-          [12], MSRVTT-QA [13], and ActivityNet-QA [2], we ap-
+duction phase. It then utilizes stepwise graph-driven ratio-      ply the same evaluation protocol as [1], which reports two
+nale learning to systematically extract reasoning-rich train-     key metrics: accuracy (the percentage of correctly answered
+ing data and perform explicit supervision for the reason-         questions) and the average score (where ChatGPT rates
+ing process. This process is iterative rather than a one-step     each response on a scale of 1-5 and calculates the mean of
+procedure, to better leverage the model’s enhanced capa-          these scores). To ensure consistent comparisons, all evalua-
+bilities in each cycle, enabling progressive improvement in       tions utilize the same GPT model, “gpt-3.5-turbo” [11]. All
+reasoning through repeated data generation and training, ul-      evaluation prompt is “Based on the video, respond to this
+timately forming a self-enhancing closed-loop mechanism.          question with a short answer: {question}”.
+    We selected three video datasets: ActivityNet [2],                For the comprehensive understanding benchmarks
+Ego4D [3], and Charades [8] as the raw video sources.             MVBench [5] and TempCompass [7], the long video under-
+ActivityNet tracks human actions in videos, Ego4D cap-            standing benchmarks MovieChat-1K [9] and MLVU [14],
+tures life from a first-person perspective, and Cha-              we adhere strictly to the evaluation methodologies specified
+rades records home-based daily tasks. The diversity in            in their respective frameworks.
+video nature—ranging from third-person action tracking                Across all evaluations, each video is represented by 8
+to first-person experiences and everyday household activi-        frames as input, with a resolution of 224 × 224. This setup
+ties—demonstrates how STEP can effectively adapt to dif-          ensures consistency in video processing and facilitates a fair
+ferent contexts, enabling robust symbolic structure induc-        comparison of model performance across diverse bench-
+tion and reasoning across a broad spectrum of real-world          marks.
+scenarios. The total number of QRAs extracted from these
+three raw video datasets is as follows:                                Type         Dataset            Split       Metrics
+                                                                  Compositional     AGQA                test   Accuracy, Score
+           Raw Video Sources # QRA Samples                         Reasoning        STAR                val    Accuracy, Score
+           ActivityNet                  15K                                         MSVD-QA             test   Accuracy, Score
+           Ego4D                         5K                        Standard QA      MSRVTT-QA           test   Accuracy, Score
+           Charades                     10K                                         ActivityNet-QA      test   Accuracy, Score
+           Total                        30K
+                                                                  Comprehensive TempCompass              -     VQA Accuracy
+Table 2. Number of QRAs extracted from three raw video datasets   Understanding MVBench                  -     VQA Accuracy
+                                                                   Long video       MovieChat-1K         -     Accuracy, Score
+    For the STEP model, we perform explicit rationale su-         Understanding     MLVU                 -     VQA Accuracy
+pervision using the derived QRA training samples. Ad-
+ditionally, to mitigate catastrophic forgetting and enhance         Table 3. Evaluation metrics for each evaluation benchmarks
+overall video comprehension, the training data is aug-
+mented by incorporating previously utilized instruction-
+tuning data from VideoChat* and VILA, with Lrationale =           E. Additional Experimental Results
+0 to retain only Lanswer for these datasets.
+    For the Instruct model, we utilize the annotated labels
+                                                                  E.1. TempCompass
+from the same video datasets—ActivityNet, Ego4D, and              The TempCompass benchmark [7] encompasses four task
+Charades—to generate a annotated training set. The num-           types: Multi-Choice QA, Yes/No QA, Caption Matching,
+ber of QA samples is the same as Table 2. Since these tra-        and Caption Generation. The detailed results can be found
+ditional datasets only contain questions and answers, con-        in Tables 4, 5, 7.
+ventional training is applied with Lrationale = 0, focusing          The results underscore that STEP achieves substantial
+solely on answer-based supervision.                               advancements across all task categories in TempCompass.
+
+
+=== PDF PAGE 6 ===
+Method                           Action        Direction           Speed        Event           Attribute Change          Avg
+                              fine coarse object camera absolute relative order color size combined other
+Random                        28.4   29.3     28.3    26.3      30.6    33.0     32.2    30.1 28.9      26.4       25.9 29.9
+VideoChatGPT(7B)              28.8   62.2     33.7    26.1      28.2    28.5     37.1    26.9 31.1      35.0       33.3 35.2
+Video-LLaVA(7B)               54.9   83.2     31.7    33.7      46.0    33.2     41.4    39.7 40.2      35.0       55.6 44.7
+VideoChat2(7B)*               73.9   90.8     37.4    45.7      54.8    32.6     37.7    34.6    42.4   46.7       27.8   49.0
+VideoChat2* Instruct          82.4   95.6     37.4    44.8      54.8    35.3     40.7    43.6    42.4   45.0       38.9   51.8
+VideoChat2* Distillation      84.0   94.8     40.7    43.3      58.9    34.2     43.1    48.7    44.8   50.7       38.8   53.6
+VideoChat2* STEP              85.7   95.7     41.2    43.5      60.1    33.7     46.4    51.3    51.5   53.5       38.9   55.4
+VILA(3B)                      74.3   93.5     33.7    37.0      52.4    41.9     40.4    62.8    46.2   38.7       50.0   51.4
+VILA Instruct                 78.9   94.8     34.8    38.9      47.8    43.2     39.7    65.7    51.5   38.9       51.7   52.6
+VILA Distillation             80.4   94.8     37.0    38.0      50.2    36.8     43.0    74.8    50.0   41.0       51.6   53.5
+VILA STEP                     83.0   95.7     38.0    40.2      47.8    34.2     43.4    78.2    56.8   41.0       52.1   54.4
+
+        Table 4. Model performance comparison on multi-choice QA for TempCompass on VideoChat2* and VILA
+
+Method                           Action        Direction           Speed        Event           Attribute Change          Avg
+                              fine coarse object camera absolute relative order color size combined other
+Random                        50.0   50.0     50.0    50.0      50.0    50.0     50.0    50.0 50.0      50.0       50.0 50.0
+VideoChatGPT(7B)              50.2   54.5     50.0    50.0      49.7    49.4     51.0    50.0 50.0      50.0       50.0 50.7
+Video-LLaVA(7B)               58.4   87.6     51.4    52.7      50.8    50.0     49.2    52.2 50.0      53.0       45.8 56.4
+VideoChat2(7B)*               57.6   89.2     50.3    50.7      65.1    49.4     53.4    55.9    52.1   54.0       50.0 58.3
+VideoChat2* Instruct          58.0   90.4     53.5    50.0      66.4    49.1     53.6    58.1    53.7   56.0       50.0 59.4
+VideoChat2* Distillation      59.2   91.6     53.5    52.1      68.3    51.1     54.0    58.6    54.8   57.0       49.8 60.4
+VideoChat2* STEP 60.1         91.7   52.9     52.0    68.1      51.3    56.4     59.3    54.5    57.7   50.3       60.9
+VILA(3B)                      65.8   87.4     52.3    52.7      52.9    50.6     54.2    63.2    61.2   56.0       62.5   60.1
+VILA Instruct                 67.8   90.5     52.1    53.0      53.2    54.2     55.4    63.8    64.7   57.3       62.9   61.8
+VILA Distillation             68.3   91.5     53.2    52.9      53.8    53.7     55.9    64.7    65.0   58.6       63.5   62.3
+VILA STEP                     69.1   91.7     53.6    53.0      53.7    53.9     56.4    65.3    65.5   59.2       63.9   62.7
+
+           Table 5. Model performance comparison on yes/no QA for TempCompass on VideoChat2* and VILA
+
+Specifically, in the Multi-Choice QA and Yes/No QA tasks,        by incorporating dynamic elements, such as transforming
+STEP exhibits superior performance in fine-grained dimen-        “object location” into ”motion direction,” and uses an auto-
+sions such as fine action recognition, event order com-          mated annotation pipeline to ensure fairness and accuracy.
+prehension, and attribute change detection. These dimen-
+                                                                    The performance metrics across cognitive and visual
+sions necessitate sophisticated spatio-temporal reasoning
+                                                                 tasks are as follows: Action Sequence (AS) measures ac-
+and a precise understanding of video semantics. Further-
+                                                                 curacy in identifying action sequences in videos. Action
+more, STEP reduces hallucinations by incorporating multi-
+                                                                 Prediction (AP) evaluates the model’s ability to predict sub-
+granular details and reasoning steps aligned with the query,
+                                                                 sequent actions. Action Antonym (AA) assesses accuracy
+enabling it to interpret complex temporal-spatial dependen-
+                                                                 in distinguishing opposite actions, while Fine-grained Ac-
+cies and tackle challenging reasoning tasks with greater ac-
+                                                                 tion (FA) gauges precision in recognizing subtle action vari-
+curacy and interpretability.
+                                                                 ations. Unexpected Action (UA) tests the detection of ab-
+                                                                 normal actions. Object Existence (OE) evaluates object
+E.2. MVBench
+                                                                 presence or absence recognition, and Object Interaction
+MVBench [5] is a comprehensive video benchmark de-               (OI) assesses understanding of object relationships. Object
+signed to evaluate temporal reasoning in dynamic tasks. It       Shuffle (OS) measures object tracking through rearrange-
+includes 20 tasks that assess various temporal skills, from      ments. Moving Direction (MD) evaluates movement di-
+perception to cognition, aiming to test the real-world appli-    rection recognition, and Action Localization (AL) measures
+cability of Video-LLMs. MVBench enhances static tasks            spatial-temporal action pinpointing. Scene Transition (ST)
+
+
+=== PDF PAGE 7 ===
+Model                  Avg AS AP AA FA UA OE OI OS MD AL ST AC MC MA SC FP CO EN ER CI
+Random           27.3 25.0 25.0 33.3 25.0 25.0 33.3 25.0 33.3 25.0 25.0 25.0 33.3 25.0 33.3 33.3 25.0 33.3 25.0 20.0 30.9
+VideoChatGPT(7B) 32.7 23.5 26.0 62.0 22.5 26.5 54.0 28.0 40.0 23.0 20.0 31.0 30.5 25.5 39.5 48.5 29.0 33.0 29.5 26.0 35.5
+VideoChat(7B)    35.5 33.5 26.5 56.0 33.5 40.5 53.0 40.5 30.0 25.5 27.0 48.5 35.0 20.5 42.5 46.0 26.5 41.0 23.5 23.5 36.0
+VideoChat2(7B)* 47.0 63.5 47.0 66.5 43.0 56.0 51.5 68.0 35.0 20.0 32.5 82.5 38.5 36.5 54.5 45.0 51.0 42.5 28.5 38.0 39.0
+VideoChat2* Inst 47.9 64.0 49.0 68.5 43.0 58.0 53.5 68.5 36.5 22.0 33.5 83.5 39.0 36.0 54.5 46.5 52.0 42.0 31.0 38.5 39.5
+VideoChat2* Dist 48.5 65.0 49.5 69.0 45.5 57.0 54.5 70.0 36.5 21.5 33.5 85.0 39.0 36.0 55.0 46.5 52.5 43.0 32.0 41.0 38.5
+VideoChat2* STEP 49.2 67.0 49.5 69.0 46.5 57.0 54.5 71.5 36.5 21.0 34.0 85.5 39.5 37.5 56.0 46.5 53.5 43.5 33.0 42.5 39.5
+VILA(3B)          43.0 56.0 48.5 57.0 39.0 51.5 52.5 54.0 26.0 27.5 28.0 74.5 37.0 30.5 53.5 39.0 40.0 47.0 31.5 37.0 30.0
+VILA Instruct     44.2 58.0 50.5 59.0 41.5 52.5 53.5 55.5 28.0 27.5 29.5 76.5 38.5 30.0 53.5 39.0 41.0 48.0 32.0 38.5 32.0
+VILA Distillation 44.8 60.5 50.5 60.0 43.5 54.0 54.5 55.5 28.5 27.0 29.0 76.5 38.5 30.5 53.0 39.0 41.0 49.0 32.5 40.5 33.0
+VILA STEP         45.6 60.5 52.5 62.0 44.0 53.5 54.0 57.5 32.0 26.5 30.0 78.5 39.5 30.0 53.5 40.0 42.5 49.0 33.5 41.5 32.0
+            1
+                VideoChat2* Inst refers to VideoChat2* Instruct, VideoChat2* Dist refers to VideoChat2* Distillation.
+
+                             Table 6. Model performance comparisons on various dimensions in MVBench
+
+gauges setting changes recognition, Action Count (AC)               pability in capturing and reasoning over complex spatio-
+tests action counting accuracy, and Moving Count (MC) fo-           temporal dependencies.
+cuses on counting moving objects. Moving Attribute (MA)
+assesses recognition of motion-related traits like speed or
+trajectory. State Change (SC) measures detection of object          F. More Qualitative Visualizations
+state changes, and Fine-grained Pose (FP) evaluates precise
+posture recognition. Character Order (CO) assesses narra-           We present additional qualitative visualizations to illustrate
+tive sequence recognition, Egocentric Navigation (EN) tests         how STEP enhances spatio-temporal reasoning and fine-
+first-person spatial understanding, Episodic Reasoning (ER)         grained detail capture across a range of diverse scenarios,
+measures episodic inference capacity, and Counterfactual            using VideoChat2* as the baseline.
+Inference (CI) evaluates reasoning in hypothetical scenar-
+ios. Avg represents the average performance across tasks.
+    From the Table 6, it is evident that the STEP method
+leads to a significant improvement in the performance of
+MVBench for both models, particularly in tasks such as Ac-
+tion Sequence, Character Order, Fine-grained Action, and
+Episodic Reasoning. This underscores its enhanced ca-
+                                                                     Question: What will the person do next?
+                                                                     A. Tidy up the table.
+                                                                     B. Open the box.      VideoChat2*
+                                                                     C. Tidy up the closet/cabinet.
+                                   Caption Caption                                                     VideoChat2* STEP
+                                                                     D. Hold the dish.
+                                   Matching Generation
+                                                                              Figure 1. Qualitative examples of action prediction
+        Random                         50        30
+        VideoChatGPT (7B)             51.8      31.8
+        Video-LLaVA(7B)               63.7      34.8
+        VideoChat2 (7B)*              67.9      45.3
+        VideoChat2* Instruct          68.6      47.8
+        VideoChat2* Distillation      69.4      48.5
+        VideoChat2* STEP              70.3      49.7
+        VILA (3B)                     65.2      39.1
+        VILA Instruct                 66.2      40.6                  Question:What happened after the person held the dish?
+        VILA Distillation             66.7      40.8                  A: Sat on the bed.
+        VILA STEP                     67.0      40.8                  B: Ate the sandwich.
+                                                                     √C: Put down the food. VideoChat2* STEP
+Table 7. Model performance comparison on Caption Matching           × D: Took the food.    VideoChat2*
+and Caption Generation for TempCompass on VideoChat2* and
+VILA.                                                                         Figure 2. Qualitative examples of action sequence
+
+
+=== PDF PAGE 8 ===
+①
+                                                                                          dataset of paired third and first person videos. arXiv preprint
+                                                                                          arXiv:1804.09626, 2018. 5
+                                                                                      [9] Enxin Song, Wenhao Chai, Guanhong Wang, Yucheng
+②
+                                                                                          Zhang, Haoyang Zhou, Feiyang Wu, Haozhe Chi, Xun Guo,
+                                                                                          Tian Ye, Yanting Zhang, et al. Moviechat: From dense token
+③                                                                                         to sparse memory for long video understanding. In Proceed-
+                                                                                          ings of the IEEE/CVF Conference on Computer Vision and
+                                                                                          Pattern Recognition, pages 18221–18232, 2024. 5
+④                                                                                    [10] Bo Wu, Shoubin Yu, Zhenfang Chen, Joshua B Tenenbaum,
+                                                                                          and Chuang Gan. Star: A benchmark for situated reason-
+                                                                                          ing in real-world videos. arXiv preprint arXiv:2405.09711,
+    Question:The person makes sets of repeated actions. How many distinct repeated        2024. 5
+    actions did the person do?
+    A. 2         ×  B. 3         √C. 4
+                                                                                     [11] Wenhao Wu. Freeva: Offline mllm as training-free video
+                                                                                          assistant. arXiv preprint arXiv:2405.07798, 2024. 5
+                 VideoChat2*            VideoChat2* STEP
+                                                                                     [12] Dejing Xu, Zhou Zhao, Jun Xiao, Fei Wu, Hanwang Zhang,
+            Figure 3. Qualitative examples of action count                                Xiangnan He, and Yueting Zhuang. Video question answer-
+                                                                                          ing via gradually refined attention over appearance and mo-
+                                                                                          tion. In Proceedings of the 25th ACM international confer-
+References                                                                                ence on Multimedia, pages 1645–1653, 2017. 5
+[1] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ah-                            [13] Jun Xu, Tao Mei, Ting Yao, and Yong Rui. Msr-vtt: A large
+    mad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida,                              video description dataset for bridging video and language. In
+    Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al.                               Proceedings of the IEEE conference on computer vision and
+    Gpt-4 technical report. arXiv preprint arXiv:2303.08774,                              pattern recognition, pages 5288–5296, 2016. 5
+    2023. 5                                                                          [14] Junjie Zhou, Yan Shu, Bo Zhao, Boya Wu, Shitao Xiao, Xi
+[2] Fabian Caba Heilbron, Victor Escorcia, Bernard Ghanem,                                Yang, Yongping Xiong, Bo Zhang, Tiejun Huang, and Zheng
+    and Juan Carlos Niebles. Activitynet: A large-scale video                             Liu. Mlvu: A comprehensive benchmark for multi-task
+    benchmark for human activity understanding. In Proceed-                               long video understanding. arXiv preprint arXiv:2406.04264,
+    ings of the ieee conference on computer vision and pattern                            2024. 5
+    recognition, pages 961–970, 2015. 5
+[3] Kristen Grauman, Andrew Westbury, Eugene Byrne,
+    Zachary Chavis, Antonino Furnari, Rohit Girdhar, Jackson
+    Hamburger, Hao Jiang, Miao Liu, Xingyu Liu, et al. Ego4d:
+    Around the world in 3,000 hours of egocentric video. In Pro-
+    ceedings of the IEEE/CVF Conference on Computer Vision
+    and Pattern Recognition, pages 18995–19012, 2022. 5
+[4] Madeleine Grunde-McLaughlin, Ranjay Krishna, and Ma-
+    neesh Agrawala. Agqa: A benchmark for compositional
+    spatio-temporal reasoning. In Proceedings of the IEEE/CVF
+    Conference on Computer Vision and Pattern Recognition,
+    pages 11287–11297, 2021. 5
+[5] Kunchang Li, Yali Wang, Yinan He, Yizhuo Li, Yi Wang,
+    Yi Liu, Zun Wang, Jilan Xu, Guo Chen, Ping Luo, et al.
+    Mvbench: A comprehensive multi-modal video understand-
+    ing benchmark. In Proceedings of the IEEE/CVF Conference
+    on Computer Vision and Pattern Recognition, pages 22195–
+    22206, 2024. 4, 5, 6
+[6] Ji Lin, Hongxu Yin, Wei Ping, Pavlo Molchanov, Moham-
+    mad Shoeybi, and Song Han. Vila: On pre-training for vi-
+    sual language models. In Proceedings of the IEEE/CVF Con-
+    ference on Computer Vision and Pattern Recognition, pages
+    26689–26699, 2024. 4
+[7] Yuanxin Liu, Shicheng Li, Yi Liu, Yuxiang Wang, Shuhuai
+    Ren, Lei Li, Sishuo Chen, Xu Sun, and Lu Hou. Tempcom-
+    pass: Do video llms really understand videos? arXiv preprint
+    arXiv:2403.00476, 2024. 5
+[8] Gunnar A Sigurdsson, Abhinav Gupta, Cordelia Schmid, Ali
+    Farhadi, and Karteek Alahari. Charades-ego: A large-scale
+

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "op": {
+      "enum": [
+        "BEFORE",
+        "WHICH_FIRST"
+      ]
+    },
+    "args": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "maxItems": 2
+    },
+    "identity_fact_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "op",
+    "args",
+    "identity_fact_id"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gate A pilot-v1 program"
+}

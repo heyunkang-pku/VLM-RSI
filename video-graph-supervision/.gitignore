@@ -1,0 +1,12 @@
+# Large immutable source assets travel separately from normal Git history.
+/artifacts/
+/data/
+/runs/
+/checkpoints/
+/models/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/

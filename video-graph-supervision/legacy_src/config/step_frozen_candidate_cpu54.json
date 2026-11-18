@@ -1,0 +1,2555 @@
+{
+  "schema": "STEP-FSG-reimplementation-v1",
+  "video_id": "video_7793",
+  "source_keyframe": {
+    "source_index": 854,
+    "pts": 854000,
+    "time_sec": 28.47331043910246,
+    "frame_id": "src_000854",
+    "file": "S2/model_inputs/image_000854.png",
+    "sha256": "1f492e7c098f48eeadd4644543c2729f331cc8cd03e01a0083ecc2f8abb99b04",
+    "selected_keyframe": true,
+    "class_video_context": false,
+    "source_file": "S1/source_frames/src_000854.png",
+    "source_sha256": "cbed84ec1fa88fb7b74aeba8fc7834120fc27958ad76026a735d82ab3ee770d1",
+    "resize_hw": [
+      320,
+      576
+    ],
+    "resize_pixels_cap": 200704
+  },
+  "object_nodes": [
+    {
+      "id": "o000",
+      "label": "table",
+      "referent": "table1, features a glossy dark surface with visible reflections of objects and ambient light, including two black ceramic cups, ping pong paddles, and balls, arranged in a game-like setup.",
+      "ordinal": 1,
+      "instance_name": "table1",
+      "distinctive_description": "features a glossy dark surface with visible reflections of objects and ambient light, including two black ceramic cups, ping pong paddles, and balls, arranged in a game-like setup.",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0003"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0009"
+    },
+    {
+      "id": "o001",
+      "label": "cups",
+      "referent": "cups1, has a small green marble resting on its inner rim",
+      "ordinal": 1,
+      "instance_name": "cups1",
+      "distinctive_description": "has a small green marble resting on its inner rim",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0004"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0012"
+    },
+    {
+      "id": "o002",
+      "label": "cups",
+      "referent": "cups2, has a red ping pong paddle resting diagonally across its top surface",
+      "ordinal": 2,
+      "instance_name": "cups2",
+      "distinctive_description": "has a red ping pong paddle resting diagonally across its top surface",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0004"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0015"
+    },
+    {
+      "id": "o003",
+      "label": "paddles",
+      "referent": "paddles1, red rubber surface with black handle",
+      "ordinal": 1,
+      "instance_name": "paddles1",
+      "distinctive_description": "red rubber surface with black handle",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0005"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0018"
+    },
+    {
+      "id": "o004",
+      "label": "paddles",
+      "referent": "paddles2, black rubber surface with wooden handle",
+      "ordinal": 2,
+      "instance_name": "paddles2",
+      "distinctive_description": "black rubber surface with wooden handle",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0005"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0021"
+    },
+    {
+      "id": "o005",
+      "label": "ping pong paddles",
+      "referent": "ping pong paddles1, red rubber surface with black handle",
+      "ordinal": 1,
+      "instance_name": "ping pong paddles1",
+      "distinctive_description": "red rubber surface with black handle",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0006"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0024"
+    },
+    {
+      "id": "o006",
+      "label": "ping pong paddles",
+      "referent": "ping pong paddles2, black rubber surface with wooden handle",
+      "ordinal": 2,
+      "instance_name": "ping pong paddles2",
+      "distinctive_description": "black rubber surface with wooden handle",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0006"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0027"
+    },
+    {
+      "id": "o007",
+      "label": "balls",
+      "referent": "balls1, orange color and positioned on top of a blue circular object",
+      "ordinal": 1,
+      "instance_name": "balls1",
+      "distinctive_description": "orange color and positioned on top of a blue circular object",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0007"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0030"
+    },
+    {
+      "id": "o008",
+      "label": "balls",
+      "referent": "balls2, orange color and positioned on the table surface near a black and red paddle",
+      "ordinal": 2,
+      "instance_name": "balls2",
+      "distinctive_description": "orange color and positioned on the table surface near a black and red paddle",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0007"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0033"
+    },
+    {
+      "id": "o009",
+      "label": "marble",
+      "referent": "marble1, green translucent surface with visible internal reflections and a slightly irregular shape, positioned near the center of the table between two black ceramic cups.",
+      "ordinal": 1,
+      "instance_name": "marble1",
+      "distinctive_description": "green translucent surface with visible internal reflections and a slightly irregular shape, positioned near the center of the table between two black ceramic cups.",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0002",
+        "0fc465a7_gpu0_request0008"
+      ],
+      "classification": "static",
+      "cross_frame_identity": "NOT_ASSESSED",
+      "verification": "NOT_RUN",
+      "classification_request_id": "0fc465a7_gpu0_request0036"
+    }
+  ],
+  "attribute_nodes": [
+    {
+      "id": "a000",
+      "type": "surface",
+      "value": "glossy and dark",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a001",
+      "type": "reflectivity",
+      "value": "reflects surrounding objects and ambient light",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a002",
+      "type": "items_on_table",
+      "value": "two black ceramic cups, ping pong paddles, and balls",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a003",
+      "type": "arrangement",
+      "value": "game-like setup",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a004",
+      "type": "finish",
+      "value": "polished and reflective",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a005",
+      "type": "color",
+      "value": "dark and glossy",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0013",
+        "0fc465a7_gpu0_request0014"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a006",
+      "type": "feature",
+      "value": "small green marble on inner rim",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0013",
+        "0fc465a7_gpu0_request0014"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a007",
+      "type": "state",
+      "value": "still and reflective",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0013",
+        "0fc465a7_gpu0_request0014"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a008",
+      "type": "color",
+      "value": "dark and glossy",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0016",
+        "0fc465a7_gpu0_request0017"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a009",
+      "type": "content",
+      "value": "red ping pong paddle resting diagonally across its top surface",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0016",
+        "0fc465a7_gpu0_request0017"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a010",
+      "type": "light_reflection",
+      "value": "reflecting the room’s ambient light",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0016",
+        "0fc465a7_gpu0_request0017"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a011",
+      "type": "color",
+      "value": "red",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a012",
+      "type": "material",
+      "value": "rubber",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a013",
+      "type": "handle_color",
+      "value": "black",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a014",
+      "type": "condition",
+      "value": "slightly worn from use",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a015",
+      "type": "position",
+      "value": "resting on glossy table",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a016",
+      "type": "context",
+      "value": "near blue circular object and small orange ball",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a017",
+      "type": "state",
+      "value": "ready for play",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a018",
+      "type": "color",
+      "value": "black",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a019",
+      "type": "material",
+      "value": "rubber",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a020",
+      "type": "handle_material",
+      "value": "wooden",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a021",
+      "type": "condition",
+      "value": "slightly worn from use",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a022",
+      "type": "location",
+      "value": "resting on glossy table",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a023",
+      "type": "surface_texture",
+      "value": "smooth",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a024",
+      "type": "color",
+      "value": "red",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a025",
+      "type": "material",
+      "value": "rubber",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a026",
+      "type": "handle color",
+      "value": "black",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a027",
+      "type": "surface condition",
+      "value": "gleams under light",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a028",
+      "type": "position",
+      "value": "resting beside a blue cup",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a029",
+      "type": "surface material",
+      "value": "black rubber",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a030",
+      "type": "surface texture",
+      "value": "smooth and glossy",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a031",
+      "type": "handle material",
+      "value": "wooden",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a032",
+      "type": "handle condition",
+      "value": "worn and slightly curved",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a033",
+      "type": "color",
+      "value": "orange",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a034",
+      "type": "position",
+      "value": "on top of a blue circular object",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a035",
+      "type": "state",
+      "value": "stationary",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a036",
+      "type": "appearance",
+      "value": "vibrant",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a037",
+      "type": "color",
+      "value": "orange",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a038",
+      "type": "position",
+      "value": "on the table surface",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a039",
+      "type": "proximity",
+      "value": "near a black and red paddle",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a040",
+      "type": "state",
+      "value": "still and vibrant",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a041",
+      "type": "color",
+      "value": "green",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a042",
+      "type": "translucency",
+      "value": "translucent",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a043",
+      "type": "surface",
+      "value": "gleams with internal reflections",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a044",
+      "type": "shape",
+      "value": "slightly irregular",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a045",
+      "type": "position",
+      "value": "near the center of the table between two black ceramic cups",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a046",
+      "type": "context",
+      "value": "resting quietly",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ],
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "a047",
+      "type": "contrast",
+      "value": "subtle organic contrast to polished table surface",
+      "source_keyframe_id": "src_000854",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ],
+      "verification": "NOT_RUN"
+    }
+  ],
+  "attribute_edges": [
+    {
+      "id": "has_a000",
+      "subject_id": "o000",
+      "attribute_id": "a000",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ]
+    },
+    {
+      "id": "has_a001",
+      "subject_id": "o000",
+      "attribute_id": "a001",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ]
+    },
+    {
+      "id": "has_a002",
+      "subject_id": "o000",
+      "attribute_id": "a002",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ]
+    },
+    {
+      "id": "has_a003",
+      "subject_id": "o000",
+      "attribute_id": "a003",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ]
+    },
+    {
+      "id": "has_a004",
+      "subject_id": "o000",
+      "attribute_id": "a004",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0010",
+        "0fc465a7_gpu0_request0011"
+      ]
+    },
+    {
+      "id": "has_a005",
+      "subject_id": "o001",
+      "attribute_id": "a005",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0013",
+        "0fc465a7_gpu0_request0014"
+      ]
+    },
+    {
+      "id": "has_a006",
+      "subject_id": "o001",
+      "attribute_id": "a006",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0013",
+        "0fc465a7_gpu0_request0014"
+      ]
+    },
+    {
+      "id": "has_a007",
+      "subject_id": "o001",
+      "attribute_id": "a007",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0013",
+        "0fc465a7_gpu0_request0014"
+      ]
+    },
+    {
+      "id": "has_a008",
+      "subject_id": "o002",
+      "attribute_id": "a008",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0016",
+        "0fc465a7_gpu0_request0017"
+      ]
+    },
+    {
+      "id": "has_a009",
+      "subject_id": "o002",
+      "attribute_id": "a009",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0016",
+        "0fc465a7_gpu0_request0017"
+      ]
+    },
+    {
+      "id": "has_a010",
+      "subject_id": "o002",
+      "attribute_id": "a010",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0016",
+        "0fc465a7_gpu0_request0017"
+      ]
+    },
+    {
+      "id": "has_a011",
+      "subject_id": "o003",
+      "attribute_id": "a011",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ]
+    },
+    {
+      "id": "has_a012",
+      "subject_id": "o003",
+      "attribute_id": "a012",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ]
+    },
+    {
+      "id": "has_a013",
+      "subject_id": "o003",
+      "attribute_id": "a013",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ]
+    },
+    {
+      "id": "has_a014",
+      "subject_id": "o003",
+      "attribute_id": "a014",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ]
+    },
+    {
+      "id": "has_a015",
+      "subject_id": "o003",
+      "attribute_id": "a015",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ]
+    },
+    {
+      "id": "has_a016",
+      "subject_id": "o003",
+      "attribute_id": "a016",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ]
+    },
+    {
+      "id": "has_a017",
+      "subject_id": "o003",
+      "attribute_id": "a017",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0019",
+        "0fc465a7_gpu0_request0020"
+      ]
+    },
+    {
+      "id": "has_a018",
+      "subject_id": "o004",
+      "attribute_id": "a018",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ]
+    },
+    {
+      "id": "has_a019",
+      "subject_id": "o004",
+      "attribute_id": "a019",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ]
+    },
+    {
+      "id": "has_a020",
+      "subject_id": "o004",
+      "attribute_id": "a020",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ]
+    },
+    {
+      "id": "has_a021",
+      "subject_id": "o004",
+      "attribute_id": "a021",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ]
+    },
+    {
+      "id": "has_a022",
+      "subject_id": "o004",
+      "attribute_id": "a022",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ]
+    },
+    {
+      "id": "has_a023",
+      "subject_id": "o004",
+      "attribute_id": "a023",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0022",
+        "0fc465a7_gpu0_request0023"
+      ]
+    },
+    {
+      "id": "has_a024",
+      "subject_id": "o005",
+      "attribute_id": "a024",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ]
+    },
+    {
+      "id": "has_a025",
+      "subject_id": "o005",
+      "attribute_id": "a025",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ]
+    },
+    {
+      "id": "has_a026",
+      "subject_id": "o005",
+      "attribute_id": "a026",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ]
+    },
+    {
+      "id": "has_a027",
+      "subject_id": "o005",
+      "attribute_id": "a027",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ]
+    },
+    {
+      "id": "has_a028",
+      "subject_id": "o005",
+      "attribute_id": "a028",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0025",
+        "0fc465a7_gpu0_request0026"
+      ]
+    },
+    {
+      "id": "has_a029",
+      "subject_id": "o006",
+      "attribute_id": "a029",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ]
+    },
+    {
+      "id": "has_a030",
+      "subject_id": "o006",
+      "attribute_id": "a030",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ]
+    },
+    {
+      "id": "has_a031",
+      "subject_id": "o006",
+      "attribute_id": "a031",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ]
+    },
+    {
+      "id": "has_a032",
+      "subject_id": "o006",
+      "attribute_id": "a032",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0028",
+        "0fc465a7_gpu0_request0029"
+      ]
+    },
+    {
+      "id": "has_a033",
+      "subject_id": "o007",
+      "attribute_id": "a033",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ]
+    },
+    {
+      "id": "has_a034",
+      "subject_id": "o007",
+      "attribute_id": "a034",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ]
+    },
+    {
+      "id": "has_a035",
+      "subject_id": "o007",
+      "attribute_id": "a035",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ]
+    },
+    {
+      "id": "has_a036",
+      "subject_id": "o007",
+      "attribute_id": "a036",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0031",
+        "0fc465a7_gpu0_request0032"
+      ]
+    },
+    {
+      "id": "has_a037",
+      "subject_id": "o008",
+      "attribute_id": "a037",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ]
+    },
+    {
+      "id": "has_a038",
+      "subject_id": "o008",
+      "attribute_id": "a038",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ]
+    },
+    {
+      "id": "has_a039",
+      "subject_id": "o008",
+      "attribute_id": "a039",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ]
+    },
+    {
+      "id": "has_a040",
+      "subject_id": "o008",
+      "attribute_id": "a040",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0034",
+        "0fc465a7_gpu0_request0035"
+      ]
+    },
+    {
+      "id": "has_a041",
+      "subject_id": "o009",
+      "attribute_id": "a041",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ]
+    },
+    {
+      "id": "has_a042",
+      "subject_id": "o009",
+      "attribute_id": "a042",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ]
+    },
+    {
+      "id": "has_a043",
+      "subject_id": "o009",
+      "attribute_id": "a043",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ]
+    },
+    {
+      "id": "has_a044",
+      "subject_id": "o009",
+      "attribute_id": "a044",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ]
+    },
+    {
+      "id": "has_a045",
+      "subject_id": "o009",
+      "attribute_id": "a045",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ]
+    },
+    {
+      "id": "has_a046",
+      "subject_id": "o009",
+      "attribute_id": "a046",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ]
+    },
+    {
+      "id": "has_a047",
+      "subject_id": "o009",
+      "attribute_id": "a047",
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0037",
+        "0fc465a7_gpu0_request0038"
+      ]
+    }
+  ],
+  "relation_edges": [
+    {
+      "id": "r000",
+      "subject_id": "o000",
+      "object_id": "o001",
+      "subject": "table1",
+      "predicate": "supports",
+      "object": "cups1",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ]
+    },
+    {
+      "id": "r001",
+      "subject_id": "o000",
+      "object_id": "o002",
+      "subject": "table1",
+      "predicate": "supports",
+      "object": "cups2",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ]
+    },
+    {
+      "id": "r002",
+      "subject_id": "o000",
+      "object_id": "o003",
+      "subject": "table1",
+      "predicate": "supports",
+      "object": "paddles1",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o003"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ]
+    },
+    {
+      "id": "r003",
+      "subject_id": "o000",
+      "object_id": "o004",
+      "subject": "table1",
+      "predicate": "supports",
+      "object": "paddles2",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o004"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ]
+    },
+    {
+      "id": "r004",
+      "subject_id": "o000",
+      "object_id": "o007",
+      "subject": "table1",
+      "predicate": "supports",
+      "object": "balls1",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o007"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ]
+    },
+    {
+      "id": "r005",
+      "subject_id": "o000",
+      "object_id": "o008",
+      "subject": "table1",
+      "predicate": "supports",
+      "object": "balls2",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o008"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ]
+    },
+    {
+      "id": "r006",
+      "subject_id": "o000",
+      "object_id": "o009",
+      "subject": "table1",
+      "predicate": "supports",
+      "object": "marble1",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o009"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ]
+    },
+    {
+      "id": "r007",
+      "subject_id": "o003",
+      "object_id": "o008",
+      "subject": "paddles1",
+      "predicate": "is in contact with",
+      "object": "balls2",
+      "requested_subject_id": "o003",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o008"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0045",
+        "0fc465a7_gpu0_request0046"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o003"
+      ]
+    },
+    {
+      "id": "r008",
+      "subject_id": "o004",
+      "object_id": "o000",
+      "subject": "paddles2",
+      "predicate": "rests on",
+      "object": "table1",
+      "requested_subject_id": "o004",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o000"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0047",
+        "0fc465a7_gpu0_request0048"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o004"
+      ]
+    },
+    {
+      "id": "r009",
+      "subject_id": "o004",
+      "object_id": "o002",
+      "subject": "paddles2",
+      "predicate": "positioned to the right of",
+      "object": "cups2",
+      "requested_subject_id": "o004",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0047",
+        "0fc465a7_gpu0_request0048"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o004"
+      ]
+    },
+    {
+      "id": "r010",
+      "subject_id": "o004",
+      "object_id": "o003",
+      "subject": "paddles2",
+      "predicate": "adjacent to",
+      "object": "paddles1",
+      "requested_subject_id": "o004",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o003"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0047",
+        "0fc465a7_gpu0_request0048"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o004"
+      ]
+    },
+    {
+      "id": "r011",
+      "subject_id": "o004",
+      "object_id": "o008",
+      "subject": "paddles2",
+      "predicate": "near",
+      "object": "balls2",
+      "requested_subject_id": "o004",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o008"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0047",
+        "0fc465a7_gpu0_request0048"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o004"
+      ]
+    },
+    {
+      "id": "r012",
+      "subject_id": "o004",
+      "object_id": "o009",
+      "subject": "paddles2",
+      "predicate": "lies beside",
+      "object": "marble1",
+      "requested_subject_id": "o004",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o009"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0047",
+        "0fc465a7_gpu0_request0048"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o004"
+      ]
+    },
+    {
+      "id": "r013",
+      "subject_id": "o006",
+      "object_id": "o000",
+      "subject": "ping pong paddles2",
+      "predicate": "rests on",
+      "object": "table1",
+      "requested_subject_id": "o006",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o000"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0051",
+        "0fc465a7_gpu0_request0052"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o006"
+      ]
+    },
+    {
+      "id": "r014",
+      "subject_id": "o006",
+      "object_id": "o002",
+      "subject": "ping pong paddles2",
+      "predicate": "positioned adjacent to",
+      "object": "cups2",
+      "requested_subject_id": "o006",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0051",
+        "0fc465a7_gpu0_request0052"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o006"
+      ]
+    },
+    {
+      "id": "r015",
+      "subject_id": "o006",
+      "object_id": "o003",
+      "subject": "ping pong paddles2",
+      "predicate": "is in proximity to",
+      "object": "paddles1",
+      "requested_subject_id": "o006",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o003"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0051",
+        "0fc465a7_gpu0_request0052"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o006"
+      ]
+    },
+    {
+      "id": "r016",
+      "subject_id": "o006",
+      "object_id": "o001",
+      "subject": "ping pong paddles2",
+      "predicate": "is not in contact with",
+      "object": "cups1",
+      "requested_subject_id": "o006",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0051",
+        "0fc465a7_gpu0_request0052"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o006"
+      ]
+    },
+    {
+      "id": "r017",
+      "subject_id": "o006",
+      "object_id": "o009",
+      "subject": "ping pong paddles2",
+      "predicate": "is not in contact with",
+      "object": "marble1",
+      "requested_subject_id": "o006",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o009"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0051",
+        "0fc465a7_gpu0_request0052"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o006"
+      ]
+    },
+    {
+      "id": "r018",
+      "subject_id": "o007",
+      "object_id": "o000",
+      "subject": "balls1",
+      "predicate": "resting on",
+      "object": "table1",
+      "requested_subject_id": "o007",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o000"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0053",
+        "0fc465a7_gpu0_request0054"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o007"
+      ]
+    },
+    {
+      "id": "r019",
+      "subject_id": "o007",
+      "object_id": "o001",
+      "subject": "balls1",
+      "predicate": "positioned above",
+      "object": "cups1",
+      "requested_subject_id": "o007",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0053",
+        "0fc465a7_gpu0_request0054"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o007"
+      ]
+    },
+    {
+      "id": "r020",
+      "subject_id": "o007",
+      "object_id": "o002",
+      "subject": "balls1",
+      "predicate": "positioned above",
+      "object": "cups2",
+      "requested_subject_id": "o007",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0053",
+        "0fc465a7_gpu0_request0054"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o007"
+      ]
+    },
+    {
+      "id": "r021",
+      "subject_id": "o007",
+      "object_id": "o003",
+      "subject": "balls1",
+      "predicate": "adjacent to",
+      "object": "paddles1",
+      "requested_subject_id": "o007",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o003"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0053",
+        "0fc465a7_gpu0_request0054"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o007"
+      ]
+    },
+    {
+      "id": "r022",
+      "subject_id": "o007",
+      "object_id": "o004",
+      "subject": "balls1",
+      "predicate": "adjacent to",
+      "object": "paddles2",
+      "requested_subject_id": "o007",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o004"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0053",
+        "0fc465a7_gpu0_request0054"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o007"
+      ]
+    },
+    {
+      "id": "r023",
+      "subject_id": "o007",
+      "object_id": "o008",
+      "subject": "balls1",
+      "predicate": "near",
+      "object": "balls2",
+      "requested_subject_id": "o007",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o008"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0053",
+        "0fc465a7_gpu0_request0054"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o007"
+      ]
+    },
+    {
+      "id": "r024",
+      "subject_id": "o007",
+      "object_id": "o009",
+      "subject": "balls1",
+      "predicate": "near",
+      "object": "marble1",
+      "requested_subject_id": "o007",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o009"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0053",
+        "0fc465a7_gpu0_request0054"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o007"
+      ]
+    },
+    {
+      "id": "r025",
+      "subject_id": "o009",
+      "object_id": "o000",
+      "subject": "marble1",
+      "predicate": "positioned on",
+      "object": "table1",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o000"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r026",
+      "subject_id": "o009",
+      "object_id": "o001",
+      "subject": "marble1",
+      "predicate": "resting between",
+      "object": "cups1",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r027",
+      "subject_id": "o009",
+      "object_id": "o002",
+      "subject": "marble1",
+      "predicate": "resting between",
+      "object": "cups2",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r028",
+      "subject_id": "o009",
+      "object_id": "o001",
+      "subject": "marble1",
+      "predicate": "adjacent to",
+      "object": "cups1",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r029",
+      "subject_id": "o009",
+      "object_id": "o002",
+      "subject": "marble1",
+      "predicate": "adjacent to",
+      "object": "cups2",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r030",
+      "subject_id": "o009",
+      "object_id": "o003",
+      "subject": "marble1",
+      "predicate": "with no direct contact with",
+      "object": "paddles1",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o003"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r031",
+      "subject_id": "o009",
+      "object_id": "o004",
+      "subject": "marble1",
+      "predicate": "with no direct contact with",
+      "object": "paddles2",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o004"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r032",
+      "subject_id": "o009",
+      "object_id": "o007",
+      "subject": "marble1",
+      "predicate": "with no direct contact with",
+      "object": "balls1",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o007"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r033",
+      "subject_id": "o009",
+      "object_id": "o008",
+      "subject": "marble1",
+      "predicate": "with no direct contact with",
+      "object": "balls2",
+      "requested_subject_id": "o009",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [
+        "o008"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0057",
+        "0fc465a7_gpu0_request0058"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o009"
+      ]
+    },
+    {
+      "id": "r034",
+      "subject_id": "o001",
+      "object_id": "o000",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "positioned on",
+      "object": "table1",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o000"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r035",
+      "subject_id": "o001",
+      "object_id": "o002",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "adjacent to",
+      "object": "cups2",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o002"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r036",
+      "subject_id": "o001",
+      "object_id": "o009",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "near",
+      "object": "marble1",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o009"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r037",
+      "subject_id": "o001",
+      "object_id": "o007",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "separated from",
+      "object": "balls1",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o007"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r038",
+      "subject_id": "o001",
+      "object_id": "o008",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "separated from",
+      "object": "balls2",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o008"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r039",
+      "subject_id": "o001",
+      "object_id": "o003",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "in contact with",
+      "object": "paddles1",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o003"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r040",
+      "subject_id": "o001",
+      "object_id": "o004",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "in contact with",
+      "object": "paddles2",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o004"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r041",
+      "subject_id": "o001",
+      "object_id": "o005",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "spatially distinct from",
+      "object": "ping pong paddles1",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o005"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r042",
+      "subject_id": "o001",
+      "object_id": "o006",
+      "subject": "[cups1, has a small green marble resting on its inner rim]",
+      "predicate": "spatially distinct from",
+      "object": "ping pong paddles2",
+      "requested_subject_id": "o001",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o006"
+      ],
+      "subject_candidates": [
+        "o001"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0041",
+        "0fc465a7_gpu0_request0042"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r043",
+      "subject_id": "o002",
+      "object_id": "o000",
+      "subject": "[cups2, has a red ping pong paddle resting diagonally across its top surface]",
+      "predicate": "positioned on",
+      "object": "table1",
+      "requested_subject_id": "o002",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o000"
+      ],
+      "subject_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0043",
+        "0fc465a7_gpu0_request0044"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r044",
+      "subject_id": "o002",
+      "object_id": "o001",
+      "subject": "[cups2, has a red ping pong paddle resting diagonally across its top surface]",
+      "predicate": "adjacent to",
+      "object": "cups1",
+      "requested_subject_id": "o002",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o001"
+      ],
+      "subject_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0043",
+        "0fc465a7_gpu0_request0044"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r045",
+      "subject_id": "o002",
+      "object_id": "o003",
+      "subject": "[cups2, has a red ping pong paddle resting diagonally across its top surface]",
+      "predicate": "in contact with",
+      "object": "paddles1",
+      "requested_subject_id": "o002",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o003"
+      ],
+      "subject_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0043",
+        "0fc465a7_gpu0_request0044"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r046",
+      "subject_id": "o002",
+      "object_id": "o004",
+      "subject": "[cups2, has a red ping pong paddle resting diagonally across its top surface]",
+      "predicate": "in contact with",
+      "object": "paddles2",
+      "requested_subject_id": "o002",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o004"
+      ],
+      "subject_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0043",
+        "0fc465a7_gpu0_request0044"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r047",
+      "subject_id": "o002",
+      "object_id": "o007",
+      "subject": "[cups2, has a red ping pong paddle resting diagonally across its top surface]",
+      "predicate": "near",
+      "object": "balls1",
+      "requested_subject_id": "o002",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o007"
+      ],
+      "subject_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0043",
+        "0fc465a7_gpu0_request0044"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r048",
+      "subject_id": "o002",
+      "object_id": "o008",
+      "subject": "[cups2, has a red ping pong paddle resting diagonally across its top surface]",
+      "predicate": "near",
+      "object": "balls2",
+      "requested_subject_id": "o002",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o008"
+      ],
+      "subject_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0043",
+        "0fc465a7_gpu0_request0044"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r049",
+      "subject_id": "o002",
+      "object_id": "o009",
+      "subject": "[cups2, has a red ping pong paddle resting diagonally across its top surface]",
+      "predicate": "near",
+      "object": "marble1",
+      "requested_subject_id": "o002",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o009"
+      ],
+      "subject_candidates": [
+        "o002"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0043",
+        "0fc465a7_gpu0_request0044"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r050",
+      "subject_id": "o005",
+      "object_id": "o000",
+      "subject": "[ping pong paddles1, red rubber surface with black handle]",
+      "predicate": "in contact with",
+      "object": "table1",
+      "requested_subject_id": "o005",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o000"
+      ],
+      "subject_candidates": [
+        "o005"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0049",
+        "0fc465a7_gpu0_request0050"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r051",
+      "subject_id": "o005",
+      "object_id": "o008",
+      "subject": "[ping pong paddles1, red rubber surface with black handle]",
+      "predicate": "spatially adjacent to",
+      "object": "balls2",
+      "requested_subject_id": "o005",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o008"
+      ],
+      "subject_candidates": [
+        "o005"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0049",
+        "0fc465a7_gpu0_request0050"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r052",
+      "subject_id": "o005",
+      "object_id": "o009",
+      "subject": "[ping pong paddles1, red rubber surface with black handle]",
+      "predicate": "positioned near",
+      "object": "marble1",
+      "requested_subject_id": "o005",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o009"
+      ],
+      "subject_candidates": [
+        "o005"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0049",
+        "0fc465a7_gpu0_request0050"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    },
+    {
+      "id": "r053",
+      "subject_id": "o005",
+      "object_id": "o007",
+      "subject": "[ping pong paddles1, red rubber surface with black handle]",
+      "predicate": "not in contact with",
+      "object": "balls1",
+      "requested_subject_id": "o005",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [
+        "o007"
+      ],
+      "subject_candidates": [
+        "o005"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0049",
+        "0fc465a7_gpu0_request0050"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only"
+    }
+  ],
+  "unresolved_relation_claims": [
+    {
+      "subject": "table1",
+      "predicate": "reflects",
+      "object": "positions",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ],
+      "status": "UNRESOLVED_TARGET"
+    },
+    {
+      "subject": "table1",
+      "predicate": "reflects",
+      "object": "forms",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ],
+      "status": "UNRESOLVED_TARGET"
+    },
+    {
+      "subject": "table1",
+      "predicate": "reflects",
+      "object": "objects",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ],
+      "status": "UNRESOLVED_TARGET"
+    },
+    {
+      "subject": "table1",
+      "predicate": "reflects",
+      "object": "ambient light",
+      "requested_subject_id": "o000",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0039",
+        "0fc465a7_gpu0_request0040"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o000"
+      ],
+      "status": "UNRESOLVED_TARGET"
+    },
+    {
+      "subject": "paddles1",
+      "predicate": "rests diagonally across",
+      "object": "surface of table1",
+      "requested_subject_id": "o003",
+      "subject_binding": "task-scoped requested instance, not crossframe identity",
+      "target_candidates": [],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0045",
+        "0fc465a7_gpu0_request0046"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "subject_candidates": [
+        "o003"
+      ],
+      "status": "UNRESOLVED_TARGET"
+    },
+    {
+      "subject": "[ping pong paddles1, red rubber surface with black handle]",
+      "predicate": "positioned above",
+      "object": "cup’s rim",
+      "requested_subject_id": "o005",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [],
+      "subject_candidates": [
+        "o005"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0049",
+        "0fc465a7_gpu0_request0050"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only",
+      "status": "UNRESOLVED_NOT_GUESSED"
+    },
+    {
+      "subject": "[ping pong paddles1, red rubber surface with black handle]",
+      "predicate": "extends outward toward",
+      "object": "table’s edge",
+      "requested_subject_id": "o005",
+      "subject_binding": "unique exact match after preserving bracket-delimited subject",
+      "target_candidates": [],
+      "subject_candidates": [
+        "o005"
+      ],
+      "source_request_ids": [
+        "0fc465a7_gpu0_request0049",
+        "0fc465a7_gpu0_request0050"
+      ],
+      "source_keyframe_id": "src_000854",
+      "verification": "NOT_RUN",
+      "normalization": "CPU bracket-aware tuple decoding only",
+      "status": "UNRESOLVED_NOT_GUESSED"
+    }
+  ],
+  "native_verification_status": "NOT_RUN_PARAMETERS_NOT_APPROVED",
+  "prompt_chain_completed": true,
+  "postprocessing": {
+    "parent_fsg_sha256": "30746e07138d20a0b203144533055afb114e885ab34a686c66e32b66665549cc",
+    "no_model_calls": true,
+    "visual_claims_unchanged": true,
+    "description": "Parse existing nested subject punctuation; no change to original run files.",
+    "still_undecoded_raw_groups": [
+      {
+        "request_id": "0fc465a7_gpu0_request0050",
+        "raw_group_index": 0,
+        "raw_tuple_content": " [ping pong paddles1, red rubber surface with black handle], rests diagonally across, top surface of, cups2 ",
+        "was_failed_response": true,
+        "can_link_without_new_claim": false,
+        "error": "NOT_EXACTLY_THREE_TOP_LEVEL_FIELDS"
+      },
+      {
+        "request_id": "0fc465a7_gpu0_request0056",
+        "raw_group_index": 0,
+        "raw_tuple_content": "balls2, orange color and positioned on the table surface near a black and red paddle, located on, table1 surface",
+        "was_failed_response": true,
+        "can_link_without_new_claim": false,
+        "error": "NOT_EXACTLY_THREE_TOP_LEVEL_FIELDS"
+      },
+      {
+        "request_id": "0fc465a7_gpu0_request0056",
+        "raw_group_index": 1,
+        "raw_tuple_content": "balls2, orange color and positioned on the table surface near a black and red paddle, adjacent to, paddles1",
+        "was_failed_response": true,
+        "can_link_without_new_claim": false,
+        "error": "NOT_EXACTLY_THREE_TOP_LEVEL_FIELDS"
+      },
+      {
+        "request_id": "0fc465a7_gpu0_request0056",
+        "raw_group_index": 2,
+        "raw_tuple_content": "balls2, orange color and positioned on the table surface near a black and red paddle, near, cups2",
+        "was_failed_response": true,
+        "can_link_without_new_claim": false,
+        "error": "NOT_EXACTLY_THREE_TOP_LEVEL_FIELDS"
+      },
+      {
+        "request_id": "0fc465a7_gpu0_request0056",
+        "raw_group_index": 3,
+        "raw_tuple_content": "balls2, orange color and positioned on the table surface near a black and red paddle, positioned closer to, paddles2",
+        "was_failed_response": true,
+        "can_link_without_new_claim": false,
+        "error": "NOT_EXACTLY_THREE_TOP_LEVEL_FIELDS"
+      },
+      {
+        "request_id": "0fc465a7_gpu0_request0056",
+        "raw_group_index": 4,
+        "raw_tuple_content": "balls2, orange color and positioned on the table surface near a black and red paddle, not in contact with, marble1",
+        "was_failed_response": true,
+        "can_link_without_new_claim": false,
+        "error": "NOT_EXACTLY_THREE_TOP_LEVEL_FIELDS"
+      }
+    ]
+  }
+}

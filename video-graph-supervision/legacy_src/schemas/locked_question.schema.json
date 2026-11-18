@@ -1,0 +1,134 @@
+{
+  "type": "object",
+  "properties": {
+    "video_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_video_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "raw_graph_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "answer_type": {
+      "enum": [
+        "boolean",
+        "choice"
+      ]
+    },
+    "program": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "enum": [
+            "BEFORE",
+            "WHICH_FIRST"
+          ]
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 2,
+          "uniqueItems": true,
+          "maxItems": 2
+        },
+        "identity_fact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "op",
+        "args",
+        "identity_fact_id"
+      ],
+      "additionalProperties": false,
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Gate A pilot-v1 program"
+    },
+    "required_fact_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "template_version": {
+      "const": "strict-order-v2"
+    },
+    "template_family": {
+      "const": "temporal_order"
+    },
+    "cross_clip": {
+      "type": "boolean"
+    },
+    "logical_hop_count": {
+      "const": 2
+    },
+    "dependency_fact_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "candidate_generated_from_raw_graph": {
+      "const": true
+    },
+    "program_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "question_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "frozen_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "identity_mode": {
+      "enum": [
+        "shared_track",
+        "explicit_link"
+      ]
+    }
+  },
+  "required": [
+    "video_id",
+    "source_video_id",
+    "raw_graph_sha256",
+    "question",
+    "answer_type",
+    "program",
+    "required_fact_ids",
+    "seed",
+    "template_version",
+    "template_family",
+    "cross_clip",
+    "logical_hop_count",
+    "dependency_fact_count",
+    "candidate_generated_from_raw_graph",
+    "program_sha256",
+    "question_id",
+    "frozen_sha256",
+    "identity_mode"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gate A pilot-v1 locked_question"
+}
