@@ -10,3 +10,7 @@
 __pycache__/
 *.pyc
 .venv/
+
+# Operating system metadata
+.DS_Store
+Thumbs.db

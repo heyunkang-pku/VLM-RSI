@@ -1,0 +1,18 @@
+﻿filename,role,included,repo_path,bytes,sha256,in_git
+STEP_EVENT_MCQ_V2_DATA.zip,v2 图/帧/冻结 QA/票型/源码,included,artifacts/STEP_EVENT_MCQ_V2_DATA.zip,30989945,57281a22f82d3134d2c2dc14dfe0a91e3b43831c0778a741753fafa43995504e,no
+STEP_EVENT_MCQ_V2_REPORT.md,v2 最新报告,included,reports/STEP_EVENT_MCQ_V2_REPORT.md,6505,dc318479c813858e4a6bfa974adb14474ae7eaa165b9a96859e4c574ba326c7c,yes
+STEP-EVENT-V2-REVIEW-annotator1.csv,单人审核原表,included,annotations/STEP-EVENT-V2-REVIEW-annotator1.csv,2075,1ad1799388e441b71500b363fc0defe41f0a0b29bfd8a8fb33e764e6e9a6437e,yes
+STEP_EVENT_MCQ_V2_BLIND_REVIEW.zip,无答案离线审核包,included,artifacts/STEP_EVENT_MCQ_V2_BLIND_REVIEW.zip,20123471,b3e7769ef9398c99b33962f60bb2efe673eb8950f58d95ebf37cd75f01e20fba,no
+STEP33_VERIFIER_V2_REVIEW.md,必要事实/证据预检历史报告,included_content_read,reports/STEP33_VERIFIER_V2_REVIEW.md,5581,ab2dae3f878adf5bd878a790e30ce930181ce54159ea5e530e5f1ea0755d8e47,yes
+FOUR_GROUP_REVIEW.md,旧33与新53历史工程比较,included_content_read,reports/FOUR_GROUP_REVIEW.md,10497,f0ee7b04525b5ce03e887a8bc4aa7cf23ec4a26b79cb078d01c6eb35d9af9ec9,yes
+INPUT_ALIGNMENT_MULTITIME_PROTOCOL_20261104.md,输入对齐与多时刻适配,included_content_read,reports/INPUT_ALIGNMENT_MULTITIME_PROTOCOL_20261104.md,3277,aa83455a2d9689f906dee53f2d5adb9dc5250d2f023ce59cce222cff3a5ff532,yes
+STEP_PUBLIC32_FOLLOWUP_REPORT.md,84+60/BLIND144 历史报告,included,reports/STEP_PUBLIC32_FOLLOWUP_REPORT.md,4147,f5ce09681629d34283f327b08f55f8ef60da5a2ed0f2891d51520df31c5d88d2,yes
+STEP_EVENT_MCQ_V1_DATA.zip,v1 零题审计数据,index_only,,,,no
+EVENT_MCQ_REPORT.md,v1 零题审计报告,read_index_only,,,,no
+STEP_EVENT_MCQ_V1_REVIEW.zip,v1 审阅材料,index_only,,,,no
+STEP_PUBLIC32_FOLLOWUP_COMPLETE.zip,公共32后续完整包,index_only,,,,no
+STEP_PUBLIC32_REVIEW_20261109.zip,公共32旧审阅包,index_only,,,,no
+BLIND144_STAGE1_FINAL.zip,144题独立审核入口,index_only,,,,no
+ALL84_READABLE.csv,历史84题可读表,index_only,,,,no
+NEW60_COMPARISON.csv,历史60题比较,index_only,,,,no
+STEP_VQS_research_handoff_2026-10-31(2).md,历史决策背景，部分已过时,read_index_only,,,,no

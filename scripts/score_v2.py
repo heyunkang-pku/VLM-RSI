@@ -10,6 +10,33 @@ from pathlib import Path
 from zipfile import ZipFile
 
 
+class DataSource:
+    """Read the committed lightweight baseline or an original data ZIP."""
+
+    def __init__(self, path):
+        self.path = path
+        self.archive = None
+
+    def __enter__(self):
+        if not self.path.is_dir():
+            self.archive = ZipFile(self.path)
+        return self
+
+    def __exit__(self, *exc):
+        if self.archive is not None:
+            self.archive.close()
+
+    def read(self, name):
+        if self.archive is not None:
+            return self.archive.read(name)
+        return (self.path / name).read_bytes()
+
+    def contains(self, name):
+        if self.archive is not None:
+            return name in self.archive.namelist()
+        return (self.path / name).is_file()
+
+
 def jsonl(text):
     return [json.loads(line) for line in text.splitlines() if line.strip()]
 
@@ -31,23 +58,51 @@ def fraction(numerator, denominator):
 def main():
     repo = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data', type=Path, default=repo / 'artifacts/STEP_EVENT_MCQ_V2_DATA.zip')
+    parser.add_argument('--data', type=Path, default=repo / 'baseline/v2',
+                        help='Baseline directory or original STEP_EVENT_MCQ_V2_DATA.zip')
     parser.add_argument('--review', type=Path, default=repo / 'annotations/STEP-EVENT-V2-REVIEW-annotator1.csv')
-    parser.add_argument('--output', type=Path, default=repo / 'results')
+    parser.add_argument('--output', type=Path, default=repo / 'runs/v2-review',
+                        help='New output directory; frozen results/ stays unchanged')
     parser.add_argument('--verify-frames', action='store_true')
     args = parser.parse_args()
+    if not args.data.exists():
+        parser.error(f'Data source does not exist: {args.data}. See docs/DATA.md.')
+    if not args.review.is_file():
+        parser.error(f'Review file does not exist: {args.review}')
     review_rows = list(csv.DictReader(io.StringIO(args.review.read_text(encoding='utf-8-sig'))))
     reviews = unique_index(review_rows, 'review_id')
     counts = collections.Counter()
     joined = []
-    with ZipFile(args.data) as archive:
+    with DataSource(args.data) as archive:
+        required = ['QA_FROZEN.jsonl', 'COMPARISON.jsonl']
+        has_raw_samples = archive.contains('VOTES.jsonl')
+        if has_raw_samples:
+            required.append('VOTES.jsonl')
+        if args.verify_frames:
+            required.append('FRAME_MANIFEST_PORTABLE.json')
+        for name in required:
+            if not archive.contains(name):
+                parser.error(f'Missing {name} in data source. See docs/DATA.md.')
+        if args.verify_frames:
+            manifest = json.loads(archive.read('FRAME_MANIFEST_PORTABLE.json'))
+            frames = [f for items in manifest.values() for f in items]
+            if len(manifest) != 10 or len(frames) != 320:
+                raise ValueError('Unexpected video/frame counts')
+            if any(not archive.contains(f['relative_path']) for f in frames):
+                parser.error('Frame verification needs the full data ZIP or extracted frames. '
+                             'Use --data artifacts/STEP_EVENT_MCQ_V2_DATA.zip; see docs/DATA.md.')
+        input_sha256 = {name: hashlib.sha256(archive.read(name)).hexdigest()
+                        for name in required}
         questions = jsonl(archive.read('QA_FROZEN.jsonl').decode())
         comparisons = jsonl(archive.read('COMPARISON.jsonl').decode())
-        votes = unique_index(jsonl(archive.read('VOTES.jsonl').decode()), 'review_id')
+        votes = (unique_index(jsonl(archive.read('VOTES.jsonl').decode()), 'review_id')
+                 if has_raw_samples else None)
         qindex = unique_index(questions, 'review_id')
         cindex = unique_index(comparisons, 'review_id')
-        if not (set(qindex) == set(cindex) == set(votes) == set(reviews)):
+        if not (set(qindex) == set(cindex) == set(reviews)):
             raise ValueError('Question, comparison, votes, and review IDs do not match exactly')
+        if votes is not None and set(votes) != set(qindex):
+            raise ValueError('Raw sample IDs do not match the frozen questions')
         if len(questions) != 26:
             raise ValueError('This tool targets the frozen 26-question v2 cohort')
         for number, question in enumerate(questions, 1):
@@ -59,18 +114,25 @@ def main():
             graph = question['graph_answer'].upper()
             if graph not in legal or comparison['graph_answer'].upper() != graph:
                 raise ValueError(f'Invalid or inconsistent graph answer: {rid}')
-            samples = votes[rid]['samples']
-            if len(samples) != 10:
-                raise ValueError(f'Not ten original sampling slots: {rid}')
-            tallies = collections.Counter()
-            for sample in samples:
-                answer = (sample.get('answer') or '').upper()
-                if sample['status'] == 'VALID' and answer in legal:
-                    tallies[answer] += 1
-                counts['sample_slots'] += 1
             stored = {k.upper(): v for k, v in comparison['vote']['votes'].items()}
-            if dict(tallies) != stored:
-                raise ValueError(f'Raw vote tally differs from frozen comparison: {rid}')
+            if (comparison['vote']['fixed_denominator'] != 10
+                    or any(k not in legal or type(n) is not int or n < 0 for k, n in stored.items())
+                    or sum(stored.values()) > 10):
+                raise ValueError(f'Invalid frozen vote counts: {rid}')
+            if votes is not None:
+                samples = votes[rid]['samples']
+                if len(samples) != 10:
+                    raise ValueError(f'Not ten original sampling slots: {rid}')
+                tallies = collections.Counter()
+                for sample in samples:
+                    answer = (sample.get('answer') or '').upper()
+                    if sample['status'] == 'VALID' and answer in legal:
+                        tallies[answer] += 1
+                if dict(tallies) != stored:
+                    raise ValueError(f'Raw vote tally differs from frozen comparison: {rid}')
+            else:
+                tallies = collections.Counter(stored)
+            counts['sample_slots'] += comparison['vote']['fixed_denominator']
             majority = next((k for k, n in tallies.items() if n >= 6), '')
             stored_majority = (comparison['vote']['strict_majority_answer'] or '').upper()
             if majority != stored_majority:
@@ -112,10 +174,6 @@ def main():
                 majority_correct=(majority == human if scorable and majority else ''),
                 full_vote_disagreement=full_disagreement))
         if args.verify_frames:
-            manifest = json.loads(archive.read('FRAME_MANIFEST_PORTABLE.json'))
-            frames = [f for items in manifest.values() for f in items]
-            if len(manifest) != 10 or len(frames) != 320:
-                raise ValueError('Unexpected video/frame counts')
             for frame in frames:
                 actual = hashlib.sha256(archive.read(frame['relative_path'])).hexdigest()
                 if actual != frame['sha256']:
@@ -125,6 +183,9 @@ def main():
         reference='One human reviewer, development cohort; not definitive ground truth',
         scorable_definition='legal human option AND answerable_on_public32=yes AND unique_answer=yes',
         strict_majority='at least 6 out of the original 10 slots; original parser only',
+        raw_samples_verified=has_raw_samples,
+        sample_slots_basis=('raw_sample_records' if has_raw_samples
+                            else 'frozen_comparison_fixed_denominator'),
         counts=dict(counts),
         graph_accuracy_on_scorable=fraction(counts['graph_correct'], counts['scorable']),
         majority_answered_accuracy=fraction(counts['majority_correct'], counts['paired']),
@@ -133,7 +194,9 @@ def main():
         majority_coverage_on_scorable=fraction(counts['paired'], counts['scorable']),
         graph_correct_yield_on_scorable=fraction(counts['graph_correct'], counts['scorable']),
         majority_correct_yield_on_scorable=fraction(counts['majority_correct'], counts['scorable']),
-        data_sha256=hashlib.sha256(args.data.read_bytes()).hexdigest(),
+        data_sha256=(hashlib.sha256(args.data.read_bytes()).hexdigest()
+                     if args.data.is_file() else None),
+        input_sha256=input_sha256,
         review_sha256=hashlib.sha256(args.review.read_bytes()).hexdigest())
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'V2_SINGLE_REVIEW_SUMMARY.json').write_text(

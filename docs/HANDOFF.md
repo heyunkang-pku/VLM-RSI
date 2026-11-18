@@ -2,6 +2,8 @@
 
 更新日期：2026-11-18。面向接手建图与监督质量验证的合作研究者。
 
+当前协作仓库为 [heyunkang-pku/VLM-RSI](https://github.com/heyunkang-pku/VLM-RSI)，项目目录已整理到仓库根。原始研究结论保持不变；数据获取与当前可运行命令以 [DATA.md](DATA.md)、[REPRODUCIBILITY.md](REPRODUCIBILITY.md) 为准。
+
 ## 1. 接手目标与目前结论
 
 目标是在无人工 QA 标注的真实视频上，通过可追溯的时空图事实、图引导出题及必要的事实核验，产生比 Video-Zero 多数投票更可靠、具有实际覆盖率的训练伪标签；随后用匹配条件的训练实验检验收益。
@@ -100,13 +102,13 @@
 
 | 文件 | 用途 | 在本次交接包中的位置 |
 |---|---|---|
-| `STEP_EVENT_MCQ_V2_DATA.zip` | 冻结 QA、图、证据、320 帧、原始投票/请求、配置与源码 | `repo/artifacts/`，原包不改 |
-| `STEP_EVENT_MCQ_V2_REPORT.md` | 最新模型侧实验报告 | `repo/reports/` |
-| `STEP-EVENT-V2-REVIEW-annotator1.csv` | 单人审核原表 | `repo/annotations/` |
-| `STEP_EVENT_MCQ_V2_BLIND_REVIEW.zip` | 无答案离线审核页、说明与题单 | `repo/artifacts/`；仅此包适合发给独立审核者 |
-| `SOURCE_20d5065.zip` | v2 源码快照，内含早期构图模块 | 位于 v2 数据 ZIP 内；另解出为 `repo/legacy_src/` 便于阅读 |
-| `V2_SINGLE_REVIEW_SUMMARY.json` / `V2_REVIEW_JOINED.csv` | 本次复算结果与逐题对齐 | `repo/results/` |
-| `ARTIFACT_INDEX.csv` | 已有文件、用途、来源与是否随包 | `repo/docs/` |
+| `STEP_EVENT_MCQ_V2_DATA.zip` | 冻结 QA、图、证据、320 帧、原始投票/请求、配置与源码 | `artifacts/`，原包不改 |
+| `STEP_EVENT_MCQ_V2_REPORT.md` | 最新模型侧实验报告 | `reports/` |
+| `STEP-EVENT-V2-REVIEW-annotator1.csv` | 单人审核原表 | `annotations/` |
+| `STEP_EVENT_MCQ_V2_BLIND_REVIEW.zip` | 无答案离线审核页、说明与题单 | `artifacts/`；仅此包适合发给独立审核者 |
+| `SOURCE_20d5065.zip` | v2 源码快照，内含早期构图模块 | 位于 v2 数据 ZIP 内；另解出为 `legacy_src/` 便于阅读 |
+| `V2_SINGLE_REVIEW_SUMMARY.json` / `V2_REVIEW_JOINED.csv` | 本次复算结果与逐题对齐 | `results/` |
+| `ARTIFACT_INDEX.csv` | 已有文件、用途、来源与是否随包 | `docs/` |
 
 v2 数据 ZIP 的重要内部入口：`QA_FROZEN.jsonl`、`COMPARISON.jsonl`、`VOTES.jsonl`、`PER_QUESTION_READABLE.csv`、`QUESTION_QUALITY_FLAGS.*`、`FRAME_MANIFEST_PORTABLE.json`、`frames/`、`source_graphs/*/GRAPH_SHARED_FROZEN.json`、`FACT_REGISTRY.json`、`SOURCE_TEMPORAL_PAIRS.json`、`completed/formal/*/*/ACTUAL_GRAPH_VIEW.json`、`PROMPT.txt`、`RAW_4096.json`，以及 `completed/effective_config.json`。
 
@@ -120,9 +122,9 @@ v2 数据 ZIP 的重要内部入口：`QA_FROZEN.jsonl`、`COMPARISON.jsonl`、`
 
 ## 7. GitHub 起步与运行边界
 
-建议仓库名 `video-graph-supervision`。交接 ZIP 的 `repo/` 可直接作为初始内容。先阅读顶层 README，**不要把 legacy_src/README 的旧阶段配置当作当前有效规范**。
+当前仓库名为 `VLM-RSI`，原交接 ZIP 中的 `repo/` 内容已移到仓库根。先阅读顶层 README，**不要把 legacy_src/README 的旧阶段配置当作当前有效规范**。
 
-推荐跟踪：顶层 README、交接与协议文档、分析脚本、冻结题目/对照表、单人审核表、结果摘要、源码快照。大数据包、帧和模型权重置于被忽略的 `artifacts/`、`data/`；通过项目受控的附件或 Release 另行分享，保留 SHA256。
+仓库已跟踪：顶层 README、交接与协议文档、分析脚本、冻结题目/投票统计/对照表、单人审核表、结果摘要、源码快照。大数据包、帧和模型权重置于被忽略的 `artifacts/`、`data/`；实际附件状态见 DATA.md，公开索引保留文件名、用途与校验值，附件获取方式见 DATA.md。
 
 本次已经提供可本地离线运行的评分入口：
 
@@ -130,7 +132,7 @@ v2 数据 ZIP 的重要内部入口：`QA_FROZEN.jsonl`、`COMPARISON.jsonl`、`
 python3 scripts/score_v2.py
 ```
 
-该命令重算已有结果，不调用模型、不用 GPU。它验证 26 个题号一一对应、260 票、原投票阈值和两边配对统计。可选 `--verify-frames` 核对原包 320 张帧的文件 hash。
+该命令直接读取仓库内轻量基线，重算已有结果，不调用模型、不用 GPU，输出到 `runs/v2-review/`。它验证 26 个题号一一对应、原固定分母与投票阈值、两边配对统计；默认不读取逐条原始作答，标记 `raw_samples_verified=false`。完整 ZIP 才提供 260 次逐条采样复核。取得完整 ZIP 后，用 `--data artifacts/STEP_EVENT_MCQ_V2_DATA.zip --verify-frames` 核对 320 张帧的文件 hash。
 
 原源码入口 `legacy_src/scripts/run.sh` 派发 `four_group.event_mcq_v2`，但硬编码旧服务器 Python 环境、缓存根目录，依赖 ORX 运行器；源码若直接换机器尚不能一键复跑模型。`STEP_CURRENT_ENTRY.md` 也有早期遗留派发描述，应以实际脚本和 v2 协议为准。接手者需要先配置路径与模型依赖，再新建运行目录。
 
@@ -207,8 +209,8 @@ python3 scripts/score_v2.py
 
 学长牵头：图事实与事件关系、约束出题、伪标签质量比较，条件具备后训练验证。另一条教师 harness / 多轮学习瓶颈线可继续推进，未来通过标准 QA+evidence 接口对接；本次不把它并入学长的必做任务。
 
-未完成：完整 STEP 等价复现、可靠动作/状态程序 QA、图标签胜过多数票的独立证据、新留出批次、多审核者裁决、新方法训练与多轮收益。本次仅整理交接，不创建或推送 GitHub 仓库，不发送消息给合作方。
+未完成：完整 STEP 等价复现、可靠动作/状态程序 QA、图标签胜过多数票的独立证据、新留出批次、多审核者裁决、新方法训练与多轮收益。本仓库已建立并同步；本次整理没有重跑模型、训练或向合作方发送消息。
 
 ## 11. 主要依据
 
-当前结论以附带 v2 原始包、单人审核 CSV 和复算结果为准；历史报告解释此前实现边界。原始包来源、SHA256 和对应 ChatGPT 文件入口见仓库 `docs/ARTIFACT_INDEX.csv` 与 `docs/SOURCE_PROVENANCE.json`。源码历史文件与本文冲突时，先核查实际运行版本，不能静默沿用过时规范。
+当前结论以附带 v2 原始包、单人审核 CSV 和复算结果为准；历史报告解释此前实现边界。原始包名称、用途与 SHA256 见仓库 `docs/ARTIFACT_INDEX.csv` 与 `docs/SOURCE_PROVENANCE.json`，附件获取见 DATA.md。源码历史文件与本文冲突时，先核查实际运行版本，不能静默沿用过时规范。
